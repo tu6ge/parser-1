@@ -227,6 +227,22 @@ fn for_precedence(state: &mut State, precedence: Precedence) -> ParseResult<Expr
                         ))),
                     })
                 }
+                TokenKind::Instanceof if op.kind == TokenKind::Type => {
+                    let from_span = op.span;
+                    let from_value = op.value.clone();
+                    state.stream.next();
+
+                    Expression::Instanceof {
+                        left: Box::new(left),
+                        instanceof: span,
+                        right: Box::new(Expression::Identifier(Identifier::SimpleIdentifier(
+                            SimpleIdentifier {
+                                span: from_span,
+                                value: from_value,
+                            },
+                        ))),
+                    }
+                }
                 _ => {
                     let left = Box::new(left);
                     let right = Box::new(for_precedence(state, rpred)?);
@@ -701,7 +717,7 @@ expressions! {
     #[before(reserved_identifier_static_call), precedence(Precedence::CallDim), current(
         | TokenKind::True       | TokenKind::False | TokenKind::Null
         | TokenKind::Readonly   | TokenKind::Self_ | TokenKind::Parent
-        | TokenKind::Enum       | TokenKind::From
+        | TokenKind::Enum       | TokenKind::From  | TokenKind::Type
     ), peek(TokenKind::LeftParen)]
     reserved_identifier_function_call({
         let ident = identifiers::identifier_maybe_soft_reserved(state)?;
@@ -710,7 +726,7 @@ expressions! {
         postfix(state, lhs, &TokenKind::LeftParen)
     })
 
-    #[before(list), current(TokenKind::Enum | TokenKind::From), peek(TokenKind::DoubleColon)]
+    #[before(list), current(TokenKind::Enum | TokenKind::From | TokenKind::Type), peek(TokenKind::DoubleColon)]
     reserved_identifier_static_call({
         let ident = identifiers::type_identifier(state)?;
         let lhs = Expression::Identifier(Identifier::SimpleIdentifier(ident));
@@ -978,6 +994,14 @@ expressions! {
                 state.stream.next();
 
                 Expression::Identifier(Identifier::SimpleIdentifier(SimpleIdentifier { span, value: "from".into() }))
+            }
+            TokenKind::Type => {
+                let span = state.stream.current().span;
+                let value = state.stream.current().value.clone();
+
+                state.stream.next();
+
+                Expression::Identifier(Identifier::SimpleIdentifier(SimpleIdentifier { span, value }))
             }
             _ => clone_or_new_precedence(state)?,
         };

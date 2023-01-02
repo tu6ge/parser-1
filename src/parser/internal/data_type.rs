@@ -150,7 +150,7 @@ fn optional_simple_data_type(state: &mut State) -> ParseResult<Option<Type>> {
 
             Ok(Some(Type::Named(span, name)))
         }
-        TokenKind::Identifier => {
+        TokenKind::Identifier | TokenKind::Type => {
             let id = current.value.clone();
             let span = current.span;
             state.stream.next();

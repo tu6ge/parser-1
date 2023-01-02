@@ -1764,6 +1764,7 @@ fn parse_int(buffer: &[u8]) -> SyntaxResult<(TokenKind, ByteString)> {
 #[inline(always)]
 fn identifier_to_keyword(ident: &[u8]) -> Option<TokenKind> {
     Some(match ident.to_ascii_lowercase().as_slice() {
+        b"type" => TokenKind::Type,
         b"eval" => TokenKind::Eval,
         b"die" => TokenKind::Die,
         b"empty" => TokenKind::Empty,

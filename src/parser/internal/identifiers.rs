@@ -26,7 +26,7 @@ pub fn identifier_of(state: &mut State, kinds: &[&str]) -> ParseResult<SimpleIde
 pub fn type_identifier(state: &mut State) -> ParseResult<SimpleIdentifier> {
     let current = state.stream.current();
     match &current.kind {
-        TokenKind::Identifier => {
+        TokenKind::Identifier | TokenKind::Type => {
             let span = current.span;
 
             state.stream.next();
@@ -137,7 +137,7 @@ pub fn label_identifier(state: &mut State) -> ParseResult<SimpleIdentifier> {
 pub fn constant_identifier(state: &mut State) -> ParseResult<SimpleIdentifier> {
     let current = state.stream.current();
     match &current.kind {
-        TokenKind::Identifier => {
+        TokenKind::Identifier | TokenKind::Type => {
             let span = current.span;
 
             state.stream.next();
@@ -178,7 +178,7 @@ pub fn constant_identifier(state: &mut State) -> ParseResult<SimpleIdentifier> {
 /// Expect an unqualified identifier such as Foo or Bar.
 pub fn identifier(state: &mut State) -> ParseResult<SimpleIdentifier> {
     let current = state.stream.current();
-    if let TokenKind::Identifier = &current.kind {
+    if current.kind == TokenKind::Identifier || current.kind == TokenKind::Type {
         let span = current.span;
 
         state.stream.next();
@@ -198,7 +198,7 @@ pub fn identifier(state: &mut State) -> ParseResult<SimpleIdentifier> {
 /// Expect an unqualified or qualified identifier such as Foo, Bar or Foo\Bar.
 pub fn name(state: &mut State) -> ParseResult<SimpleIdentifier> {
     let name = peek_token!([
-        TokenKind::Identifier | TokenKind::QualifiedIdentifier => {
+        TokenKind::Identifier | TokenKind::QualifiedIdentifier | TokenKind::Type => {
             state.stream.current().value.clone()
         },
     ], state, "an identifier");
@@ -214,7 +214,7 @@ pub fn optional_name(state: &mut State) -> Option<SimpleIdentifier> {
     let current = state.stream.current();
 
     match &current.kind {
-        TokenKind::Identifier | TokenKind::QualifiedIdentifier => {
+        TokenKind::Identifier | TokenKind::QualifiedIdentifier | TokenKind::Type => {
             state.stream.next();
 
             Some(SimpleIdentifier {
@@ -240,7 +240,9 @@ pub fn full_name(state: &mut State) -> ParseResult<SimpleIdentifier> {
     match &current.kind {
         TokenKind::Identifier
         | TokenKind::QualifiedIdentifier
-        | TokenKind::FullyQualifiedIdentifier => {
+        | TokenKind::FullyQualifiedIdentifier
+        // This will allow classes to be called `type` & `Type`.
+        | TokenKind::Type => {
             let span = current.span;
 
             state.stream.next();
@@ -263,7 +265,9 @@ pub fn full_type_name(state: &mut State) -> ParseResult<SimpleIdentifier> {
     match &current.kind {
         TokenKind::Identifier
         | TokenKind::QualifiedIdentifier
-        | TokenKind::FullyQualifiedIdentifier => {
+        | TokenKind::FullyQualifiedIdentifier
+        // This will allow classes to be called `type` & `Type`.
+        | TokenKind::Type => {
             let span = current.span;
 
             state.stream.next();
@@ -320,7 +324,9 @@ pub fn full_type_name_including_self(state: &mut State) -> ParseResult<SimpleIde
     match &current.kind {
         TokenKind::Identifier
         | TokenKind::QualifiedIdentifier
-        | TokenKind::FullyQualifiedIdentifier => {
+        | TokenKind::FullyQualifiedIdentifier
+        // This will allow classes to be called `type` & `Type`.
+        | TokenKind::Type => {
             let span = current.span;
 
             state.stream.next();
@@ -380,7 +386,7 @@ pub fn identifier_maybe_soft_reserved(state: &mut State) -> ParseResult<SimpleId
     let current = state.stream.current();
 
     if is_soft_reserved_identifier(&current.kind) {
-        let name = current.to_string().into();
+        let name = current.value.clone().into();
         let span = current.span;
         state.stream.next();
 
@@ -414,7 +420,8 @@ pub fn is_soft_reserved_identifier(kind: &TokenKind) -> bool {
         | TokenKind::Null
         | TokenKind::Enum
         | TokenKind::From
-        | TokenKind::Readonly)
+        | TokenKind::Readonly
+        | TokenKind::Type)
 }
 
 pub fn is_reserved_identifier(kind: &TokenKind) -> bool {

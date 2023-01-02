@@ -42,6 +42,8 @@ use crate::parser::ast::try_block::TryStatement;
 use crate::parser::ast::utils::CommaSeparated;
 use crate::parser::ast::variables::Variable;
 
+use self::data_type::Type;
+
 pub mod arguments;
 pub mod attributes;
 pub mod classes;
@@ -246,6 +248,14 @@ pub enum Statement {
     Global(GlobalStatement),
     Declare(DeclareStatement),
     Noop(Span),
+    // `type number = int|float;`
+    TypeAlias {
+        type_keyword: Span,     // `type`
+        name: SimpleIdentifier, 
+        equals: Span,           // `=`
+        r#type: Type,
+        semicolon: Span,        // `;`
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]

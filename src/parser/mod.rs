@@ -44,6 +44,9 @@ use self::ast::ReturnStatement;
 use self::ast::ShortOpeningTagStatement;
 use self::ast::StaticStatement;
 use self::internal::precedences::Precedence;
+use self::internal::data_type::data_type;
+use self::internal::identifiers::identifier;
+use self::internal::utils::skip_semicolon;
 
 pub mod ast;
 pub mod error;
@@ -120,6 +123,15 @@ fn top_level_statement(state: &mut State) -> ParseResult<Statement> {
 
             Statement::HaltCompiler(HaltCompilerStatement { content })
         }
+        TokenKind::Type if state.stream.peek().kind == TokenKind::Identifier => {
+            let type_keyword = utils::skip(state, TokenKind::Type)?;
+            let name = identifier(state)?;
+            let equals = utils::skip(state, TokenKind::Equals)?;
+            let r#type = data_type(state)?;
+            let semicolon = skip_semicolon(state)?;
+
+            Statement::TypeAlias { type_keyword, name, equals, r#type, semicolon }
+        },
         _ => statement(state)?,
     };
 

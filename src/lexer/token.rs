@@ -260,6 +260,7 @@ pub enum TokenKind {
     LogicalAnd,
     LogicalOr,
     LogicalXor,
+    Type,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
@@ -289,6 +290,7 @@ impl Display for Token {
 impl Display for TokenKind {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let s = match self {
+            Self::Type => "type",
             Self::CompilerHaltOffsetConstant => "__COMPILER_HALT_OFFSET__",
             Self::Die => "die",
             Self::Self_ => "self",
