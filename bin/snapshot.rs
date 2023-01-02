@@ -16,9 +16,13 @@ fn main() -> io::Result<()> {
     entries.sort();
 
     for entry in entries {
-        let code_filename = entry.join("code.php");
+        let mut code_filename = entry.join("code.php");
         let ast_filename = entry.join("ast.txt");
         let error_filename = entry.join("error.txt");
+
+        if !code_filename.exists() {
+            code_filename = entry.join("code.pxp");
+        }
 
         if !code_filename.exists() {
             continue;

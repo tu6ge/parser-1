@@ -19,9 +19,15 @@ struct ExpectedTestResult {
 
 impl TestFixture {
     fn new(entry: PathBuf) -> Self {
+        let code_file = if entry.join("code.pxp").exists() {
+            entry.join("code.pxp")
+        } else {
+            entry.join("code.php")
+        };
+
         Self {
             fixture: entry.to_string_lossy().to_string(),
-            code_file: entry.join("code.php"),
+            code_file,
             ast_file: entry.join("ast.txt"),
             error_file: entry.join("error.txt"),
         }

@@ -1047,7 +1047,30 @@ impl Node for CastExpression {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
-#[serde(tag = "type", content = "value")]
+pub struct ShortMatchExpression {
+    pub keyword: Span,
+    pub default: Option<Box<DefaultMatchArm>>,
+    pub arms: Vec<MatchArm>,
+}
+
+impl Node for ShortMatchExpression {
+    fn children(&mut self) -> Vec<&mut dyn Node> {
+        let mut children: Vec<&mut dyn Node> = vec![];
+        if let Some(default) = &mut self.default {
+            children.push(default.as_mut());
+        }
+        children.extend(
+            self.arms
+                .iter_mut()
+                .map(|arm| arm as &mut dyn Node)
+                .collect::<Vec<&mut dyn Node>>(),
+        );
+        children
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "snake_case", tag = "type", content = "value")]
 pub enum Expression {
     // eval("$a = 1")
     Eval(EvalExpression),
@@ -1163,6 +1186,8 @@ pub enum Expression {
     Clone(CloneExpression),
     // `match ($foo) { ... }`
     Match(MatchExpression),
+    // `match { ... }`
+    ShortMatch(ShortMatchExpression),
     // `throw new Exception`
     Throw(ThrowExpression),
     // `yield $foo`
@@ -1348,6 +1373,7 @@ impl Node for Expression {
             Expression::Coalesce(expression) => vec![expression],
             Expression::Clone(expression) => vec![expression],
             Expression::Match(expression) => vec![expression],
+            Expression::ShortMatch(expression) => vec![expression],
             Expression::Throw(expression) => vec![expression],
             Expression::Yield(expression) => vec![expression],
             Expression::YieldFrom(expression) => vec![expression],

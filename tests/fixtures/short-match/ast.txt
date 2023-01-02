@@ -1,0 +1,52 @@
+[
+    FullOpeningTag(
+        Span {
+            line: 1,
+            column: 1,
+            position: 0,
+        },
+    ),
+    Expression {
+        expression: ShortMatch {
+            keyword: Span {
+                line: 3,
+                column: 1,
+                position: 7,
+            },
+            default: None,
+            arms: [
+                MatchArm {
+                    conditions: [
+                        Bool {
+                            value: true,
+                        },
+                    ],
+                    arrow: Span {
+                        line: 4,
+                        column: 10,
+                        position: 24,
+                    },
+                    body: Literal(
+                        String(
+                            LiteralString {
+                                value: ""Hello, world!"",
+                                span: Span {
+                                    line: 4,
+                                    column: 13,
+                                    position: 27,
+                                },
+                            },
+                        ),
+                    ),
+                },
+            ],
+        },
+        ending: Semicolon(
+            Span {
+                line: 5,
+                column: 2,
+                position: 44,
+            },
+        ),
+    },
+]

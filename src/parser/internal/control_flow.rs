@@ -2,6 +2,7 @@ use crate::expected_token_err;
 
 use crate::lexer::token::TokenKind;
 use crate::parser;
+use crate::parser::ast::ShortMatchExpression;
 use crate::parser::ast::control_flow::IfStatement;
 use crate::parser::ast::control_flow::IfStatementBody;
 use crate::parser::ast::control_flow::IfStatementElse;
@@ -25,15 +26,49 @@ use crate::parser::state::State;
 pub fn match_expression(state: &mut State) -> ParseResult<Expression> {
     let keyword = utils::skip(state, TokenKind::Match)?;
 
-    let (left_parenthesis, condition, right_parenthesis) =
-        utils::parenthesized(state, &|state: &mut State| {
-            expressions::create(state).map(Box::new)
-        })?;
+    match state.stream.current().kind {
+        TokenKind::LeftBrace => {
+            utils::skip_left_brace(state)?;
+        
+            let (default, arms) = match_arms(state)?;
+        
+            utils::skip_right_brace(state)?;
+        
+            Ok(Expression::ShortMatch(ShortMatchExpression {
+                keyword,
+                default,
+                arms,
+            }))
+        },
+        _ => {
+            let (left_parenthesis, condition, right_parenthesis) = utils::parenthesized(state, &|state: &mut State| {
+                expressions::create(state).map(Box::new)
+            })?;
+        
+            let left_brace = utils::skip_left_brace(state)?;
+        
+            let (default, arms) = match_arms(state)?;
+        
+            let right_brace = utils::skip_right_brace(state)?;
+        
+            Ok(Expression::Match {
+                keyword,
+                left_parenthesis,
+                condition,
+                right_parenthesis,
+                left_brace,
+                default,
+                arms,
+                right_brace,
+            })
+        },
+    }
+}
 
-    let left_brace = utils::skip_left_brace(state)?;
-
+fn match_arms(state: &mut State) -> ParseResult<(Option<Box<DefaultMatchArm>>, Vec<MatchArm>)> {
     let mut default: Option<Box<DefaultMatchArm>> = None;
     let mut arms = Vec::new();
+
     while state.stream.current().kind != TokenKind::RightBrace {
         let current = state.stream.current();
         if current.kind == TokenKind::Default {
@@ -94,18 +129,7 @@ pub fn match_expression(state: &mut State) -> ParseResult<Expression> {
         }
     }
 
-    let right_brace = utils::skip_right_brace(state)?;
-
-    Ok(Expression::Match(MatchExpression {
-        keyword,
-        left_parenthesis,
-        condition,
-        right_parenthesis,
-        left_brace,
-        default,
-        arms,
-        right_brace,
-    }))
+    Ok((default, arms))
 }
 
 pub fn switch_statement(state: &mut State) -> ParseResult<Statement> {
