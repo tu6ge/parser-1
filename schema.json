@@ -4553,7 +4553,29 @@
             "type": {
               "type": "string",
               "enum": [
+<<<<<<< HEAD
                 "Concat"
+=======
+                "range_operation"
+              ]
+            },
+            "value": {
+              "$ref": "#/definitions/RangeOperation"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "concat"
+>>>>>>> 9e101d7 (chore: schema)
               ]
             },
             "value": {
@@ -8162,6 +8184,7 @@
         }
       ]
     },
+<<<<<<< HEAD
     "ReferenceExpression": {
       "type": "object",
       "required": [
@@ -8206,6 +8229,79 @@
           "$ref": "#/definitions/Span"
         }
       }
+=======
+    "RangeOperation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "exclusive"
+              ]
+            },
+            "value": {
+              "type": "object",
+              "required": [
+                "double_dot",
+                "lower_bound",
+                "upper_bound"
+              ],
+              "properties": {
+                "double_dot": {
+                  "$ref": "#/definitions/Span"
+                },
+                "lower_bound": {
+                  "$ref": "#/definitions/Expression"
+                },
+                "upper_bound": {
+                  "$ref": "#/definitions/Expression"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "inclusive"
+              ]
+            },
+            "value": {
+              "type": "object",
+              "required": [
+                "double_dot_equals",
+                "lower_bound",
+                "upper_bound"
+              ],
+              "properties": {
+                "double_dot_equals": {
+                  "$ref": "#/definitions/Span"
+                },
+                "lower_bound": {
+                  "$ref": "#/definitions/Expression"
+                },
+                "upper_bound": {
+                  "$ref": "#/definitions/Expression"
+                }
+              }
+            }
+          }
+        }
+      ]
+>>>>>>> cb545f8 (chore: schema)
     },
     "ReturnStatement": {
       "type": "object",
