@@ -4083,7 +4083,7 @@
       ],
       "properties": {
         "body": {
-          "$ref": "#/definitions/Expression"
+          "$ref": "#/definitions/MatchArmBody"
         },
         "double_arrow": {
           "$ref": "#/definitions/Span"
@@ -5383,7 +5383,54 @@
             "type": {
               "type": "string",
               "enum": [
+<<<<<<< HEAD
                 "Throw"
+=======
+                "short_match"
+              ]
+            },
+            "value": {
+              "type": "object",
+              "required": [
+                "arms",
+                "keyword"
+              ],
+              "properties": {
+                "arms": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/MatchArm"
+                  }
+                },
+                "default": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/definitions/DefaultMatchArm"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "keyword": {
+                  "$ref": "#/definitions/Span"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "throw"
+>>>>>>> 15ca39d (feature: multi-line match arms)
               ]
             },
             "value": {
@@ -7299,7 +7346,7 @@
           "$ref": "#/definitions/Span"
         },
         "body": {
-          "$ref": "#/definitions/Expression"
+          "$ref": "#/definitions/MatchArmBody"
         },
         "conditions": {
           "type": "array",
@@ -7309,6 +7356,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "MatchExpression": {
       "type": "object",
       "required": [
@@ -7356,6 +7404,54 @@
           "$ref": "#/definitions/Span"
         }
       }
+=======
+    "MatchArmBody": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "block"
+          ],
+          "properties": {
+            "block": {
+              "type": "object",
+              "required": [
+                "left_brace",
+                "right_brace",
+                "statements"
+              ],
+              "properties": {
+                "left_brace": {
+                  "$ref": "#/definitions/Span"
+                },
+                "right_brace": {
+                  "$ref": "#/definitions/Span"
+                },
+                "statements": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Statement"
+                  }
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "expression"
+          ],
+          "properties": {
+            "expression": {
+              "$ref": "#/definitions/Expression"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+>>>>>>> 0823da1 (feature: multi-line match arms)
     },
     "MethodBody": {
       "type": "object",

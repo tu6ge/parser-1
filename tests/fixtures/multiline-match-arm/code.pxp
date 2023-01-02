@@ -1,0 +1,7 @@
+<?php
+
+match ($foo) {
+    "foo" => {
+        return "bar";
+    },
+};

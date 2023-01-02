@@ -1386,9 +1386,9 @@ impl Node for Expression {
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
 
 pub struct DefaultMatchArm {
-    pub keyword: Span,      // `default`
-    pub double_arrow: Span, // `=>`
-    pub body: Expression,   // `foo()`
+    pub keyword: Span,        // `default`
+    pub double_arrow: Span,   // `=>`
+    pub body: MatchArmBody,
 }
 
 impl Node for DefaultMatchArm {
@@ -1402,7 +1402,20 @@ impl Node for DefaultMatchArm {
 pub struct MatchArm {
     pub conditions: Vec<Expression>,
     pub arrow: Span,
-    pub body: Expression,
+    pub body: MatchArmBody,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum MatchArmBody {
+    // `{` *statements* `}`
+    Block {
+        left_brace: Span,
+        statements: Block,
+        right_brace: Span,
+    },
+    // *expression*
+    Expression(Expression),
 }
 
 impl Node for MatchArm {

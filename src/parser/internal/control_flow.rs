@@ -3,6 +3,7 @@ use crate::expected_token_err;
 use crate::lexer::token::TokenKind;
 use crate::parser;
 use crate::parser::ast::ShortMatchExpression;
+use crate::parser::ast::MatchArmBody;
 use crate::parser::ast::control_flow::IfStatement;
 use crate::parser::ast::control_flow::IfStatementBody;
 use crate::parser::ast::control_flow::IfStatementElse;
@@ -51,7 +52,7 @@ pub fn match_expression(state: &mut State) -> ParseResult<Expression> {
         
             let right_brace = utils::skip_right_brace(state)?;
         
-            Ok(Expression::Match {
+            Ok(Expression::Match(MatchExpression {
                 keyword,
                 left_parenthesis,
                 condition,
@@ -60,7 +61,7 @@ pub fn match_expression(state: &mut State) -> ParseResult<Expression> {
                 default,
                 arms,
                 right_brace,
-            })
+            }))
         },
     }
 }
@@ -88,7 +89,7 @@ fn match_arms(state: &mut State) -> ParseResult<(Option<Box<DefaultMatchArm>>, V
 
             let arrow = utils::skip_double_arrow(state)?;
 
-            let body = expressions::create(state)?;
+            let body = match_arm_body(state)?;
 
             default = Some(Box::new(DefaultMatchArm {
                 keyword: current.span,
@@ -113,7 +114,7 @@ fn match_arms(state: &mut State) -> ParseResult<(Option<Box<DefaultMatchArm>>, V
 
             let arrow = utils::skip_double_arrow(state)?;
 
-            let body = expressions::create(state)?;
+            let body = match_arm_body(state)?;
 
             arms.push(MatchArm {
                 conditions,
@@ -130,6 +131,19 @@ fn match_arms(state: &mut State) -> ParseResult<(Option<Box<DefaultMatchArm>>, V
     }
 
     Ok((default, arms))
+}
+
+fn match_arm_body(state: &mut State) -> ParseResult<MatchArmBody> {
+    match state.stream.current().kind {
+        TokenKind::LeftBrace => {
+            let left_brace = utils::skip(state, TokenKind::LeftBrace)?;
+            let statements = blocks::multiple_statements_until(state, &TokenKind::RightBrace)?;
+            let right_brace = utils::skip(state, TokenKind::RightBrace)?;
+
+            Ok(MatchArmBody::Block { left_brace, statements, right_brace })
+        },
+        _ => Ok(MatchArmBody::Expression(expressions::create(state)?))
+    }
 }
 
 pub fn switch_statement(state: &mut State) -> ParseResult<Statement> {
