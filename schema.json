@@ -9037,6 +9037,48 @@
               "$ref": "#/definitions/Span"
             }
           }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "type_alias"
+              ]
+            },
+            "value": {
+              "type": "object",
+              "required": [
+                "equals",
+                "name",
+                "semicolon",
+                "type",
+                "type_keyword"
+              ],
+              "properties": {
+                "equals": {
+                  "$ref": "#/definitions/Span"
+                },
+                "name": {
+                  "$ref": "#/definitions/SimpleIdentifier"
+                },
+                "semicolon": {
+                  "$ref": "#/definitions/Span"
+                },
+                "type": {
+                  "$ref": "#/definitions/Type"
+                },
+                "type_keyword": {
+                  "$ref": "#/definitions/Span"
+                }
+              }
+            }
+          }
         }
       ]
     },
