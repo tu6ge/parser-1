@@ -73,6 +73,8 @@ impl From<DocStringIndentationKind> for u8 {
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
 
 pub enum TokenKind {
+    ExclusiveRange,
+    InclusiveRange,
     Die,
     // Can't use `Self` as a name here, so suffixing with an underscore.
     Self_,
@@ -290,6 +292,8 @@ impl Display for Token {
 impl Display for TokenKind {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let s = match self {
+            Self::ExclusiveRange => "..",
+            Self::InclusiveRange => "..=",
             Self::Type => "type",
             Self::CompilerHaltOffsetConstant => "__COMPILER_HALT_OFFSET__",
             Self::Die => "die",

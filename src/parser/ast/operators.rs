@@ -494,3 +494,18 @@ impl Node for LogicalOperationExpression {
         }
     }
 }
+
+#[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "snake_case", tag = "type", content = "value")]
+pub enum RangeOperationExpression {
+    Exclusive {
+        lower_bound: Box<Expression>,
+        double_dot: Span,
+        upper_bound: Box<Expression>,
+    },
+    Inclusive {
+        lower_bound: Box<Expression>,
+        double_dot_equals: Span,
+        upper_bound: Box<Expression>,
+    },
+}

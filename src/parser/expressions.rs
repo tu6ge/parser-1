@@ -538,6 +538,16 @@ fn for_precedence(state: &mut State, precedence: Precedence) -> ParseResult<Expr
                             instanceof: span,
                             right,
                         }),
+                        TokenKind::ExclusiveRange => Expression::RangeOperation(RangeOperationExpression::Exclusive {
+                            lower_bound: left,
+                            double_dot: span,
+                            upper_bound: right,
+                        }),
+                        TokenKind::InclusiveRange => Expression::RangeOperation(RangeOperationExpression::Inclusive {
+                            lower_bound: left,
+                            double_dot_equals: span,
+                            upper_bound: right,
+                        }),
                         _ => todo!(),
                     }
                 }
@@ -1534,6 +1544,8 @@ fn is_infix(t: &TokenKind) -> bool {
             | TokenKind::DoubleQuestionEquals
             | TokenKind::AsteriskEquals
             | TokenKind::SlashEquals
+            | TokenKind::InclusiveRange
+            | TokenKind::ExclusiveRange
     )
 }
 

@@ -43,6 +43,7 @@ use crate::parser::ast::utils::CommaSeparated;
 use crate::parser::ast::variables::Variable;
 
 use self::data_type::Type;
+use self::operators::RangeOperationExpression;
 
 pub mod arguments;
 pub mod attributes;
@@ -1102,6 +1103,7 @@ pub enum Expression {
     BitwiseOperation(BitwiseOperationExpression),
     ComparisonOperation(ComparisonOperationExpression),
     LogicalOperation(LogicalOperationExpression),
+    RangeOperation(RangeOperationExpression),
     // $a . $b
     Concat(ConcatExpression),
     // $foo instanceof Bar

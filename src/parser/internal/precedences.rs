@@ -50,7 +50,7 @@ impl Precedence {
             Asterisk | Slash | Percent => Self::MulDivMod,
             Plus | Minus => Self::AddSub,
             LeftShift | RightShift => Self::BitShift,
-            Dot => Self::Concat,
+            Dot | InclusiveRange | ExclusiveRange => Self::Concat,
             LessThan | LessThanEquals | GreaterThan | GreaterThanEquals => Self::LtGt,
             DoubleEquals | BangEquals | TripleEquals | BangDoubleEquals | AngledLeftRight
             | Spaceship => Self::Equality,

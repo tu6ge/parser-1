@@ -230,6 +230,14 @@ impl Lexer {
                 state.source.skip(3);
                 (TokenKind::Ellipsis, b"...".into())
             }
+            [b'.', b'.', b'='] => {
+                state.source.skip(3);
+                (TokenKind::InclusiveRange, b"..=".into())
+            }
+            [b'.', b'.', ..] => {
+                state.source.skip(2);
+                (TokenKind::ExclusiveRange, b"..".into())
+            },
             [b'`', ..] => {
                 state.source.next();
                 state.replace(StackFrame::ShellExec);
@@ -1672,7 +1680,10 @@ impl Lexer {
                 (16, NumberKind::Int)
             }
             [b'0', ..] => (10, NumberKind::OctalOrFloat),
-            [b'.', ..] => (10, NumberKind::Float),
+            [b'.', ..] => match state.source.read(3) {
+                [b'.', b'.', b'='] | [b'.', b'.', ..] => (10, NumberKind::Int),
+                _ => (10, NumberKind::Float)
+            },
             _ => (10, NumberKind::IntOrFloat),
         };
 
@@ -1684,10 +1695,11 @@ impl Lexer {
         }
 
         // Remaining cases: decimal integer, legacy octal integer, or float.
-        let is_float = matches!(
-            state.source.read(3),
-            [b'.', ..] | [b'e' | b'E', b'-' | b'+', b'0'..=b'9'] | [b'e' | b'E', b'0'..=b'9', ..]
-        );
+        let is_float = match state.source.read(3) {
+            [b'.', b'.', b'='] | [b'.', b'.', ..] => false,
+            [b'.', ..] | [b'e' | b'E', b'-' | b'+', b'0'..=b'9'] | [b'e' | b'E', b'0'..=b'9', ..] => true,
+            _ => false,
+        };
 
         if !is_float {
             return parse_int(&buffer);

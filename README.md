@@ -28,6 +28,7 @@ PXP is a strict superset of PHP so everything that is supported by PHP is also s
 * Short match expressions
 * Multi-line match arms
 * Local type aliases
+* Range expressions `1..5` (exclusive), `1..=5` (inclusive)
 * Use-able type aliases (todo)
 * Generics, including (but not limited to) `array<K, V>`, `Closure<(int, int), int>`  (todo)
 * Auto-capturing multi-line closures (todo)
