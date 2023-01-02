@@ -1,8 +1,6 @@
 # PHP-Parser
 
-A handwritten fault-tolerant, recursive-descent parser for PHP written in Rust.
-
-[![justforfunnoreally.dev badge](https://img.shields.io/badge/justforfunnoreally-dev-9ff)](https://justforfunnoreally.dev)
+A handwritten fault-tolerant, recursive-descent parser for PXP (the PHP superset) written in Rust.
 
 > **Warning** - this is still alpha software and the public API is still subject to change. Please use at your own risk.
 
@@ -10,17 +8,17 @@ A handwritten fault-tolerant, recursive-descent parser for PHP written in Rust.
 
 ## Usage
 
-Add `php-parser-rs` in your `Cargo.toml`'s `dependencies` section
+Add `pxp-parser` in your `Cargo.toml`'s `dependencies` section
 
 ```toml
 [dependencies]
-php-parser-rs = { git = "https://github.com/php-rust-tools/parser" }
+pxp-parser = { git = "https://github.com/php-rust-tools/pxp-parser" }
 ```
 
 or use `cargo add`
 
 ```sh
-cargo add php-parser-rs --git https://github.com/php-rust-tools/parser
+cargo add pxp-parser --git https://github.com/php-rust-tools/pxp-parser
 ```
 
 ### Example
@@ -28,7 +26,7 @@ cargo add php-parser-rs --git https://github.com/php-rust-tools/parser
 ```rust
 use std::io::Result;
 
-use php_parser_rs::parser;
+use pxp_parser::parser;
 
 const CODE: &str = r#"<?php
 

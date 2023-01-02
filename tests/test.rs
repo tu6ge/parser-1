@@ -92,7 +92,7 @@ fn run_test(test_fixture: &TestFixture) -> io::Result<()> {
     let expected = test_fixture.expected();
 
     if !expected.ast.is_empty() {
-        let ast = php_parser_rs::parse(&code).unwrap();
+        let ast = pxp_parser::parse(&code).unwrap();
         assert_str_eq!(
             expected.ast.trim(),
             format!("{:#?}", ast),
@@ -102,7 +102,7 @@ fn run_test(test_fixture: &TestFixture) -> io::Result<()> {
     }
 
     if !expected.error.is_empty() {
-        let error = php_parser_rs::parse(&code).err().unwrap();
+        let error = pxp_parser::parse(&code).err().unwrap();
 
         assert_str_eq!(
             expected.error.trim(),

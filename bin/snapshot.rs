@@ -3,7 +3,7 @@ use std::fs::read_dir;
 use std::io;
 use std::path::PathBuf;
 
-use php_parser_rs::parse;
+use pxp_parser::parse;
 
 fn main() -> io::Result<()> {
     let manifest = PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap());

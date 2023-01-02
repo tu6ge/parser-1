@@ -21,7 +21,7 @@ fn main() -> Result<()> {
     let silent = args.silent;
     let print_json = args.json;
 
-    match php_parser_rs::parse(&contents) {
+    match pxp_parser::parse(&contents) {
         Ok(ast) => {
             // if --silent is passed, don't print anything
             if silent {

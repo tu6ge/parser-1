@@ -1,6 +1,6 @@
 use std::io::Result;
 
-use php_parser_rs::parser;
+use pxp_parser::parser;
 
 const CODE: &str = r#"<?php
 

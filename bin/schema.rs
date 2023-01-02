@@ -1,6 +1,6 @@
 use schemars::schema_for;
 
-use php_parser_rs::parser::ast::Program;
+use pxp_parser::parser::ast::Program;
 
 fn main() {
     let schema = schema_for!(Program);

@@ -10,9 +10,9 @@ use crate::parser::ast::comments::CommentGroup;
 /// # Examples
 ///
 /// ```rust
-/// use php_parser_rs::lexer::token::Token;
-/// use php_parser_rs::lexer::token::TokenKind;
-/// use php_parser_rs::lexer::stream::TokenStream;
+/// use pxp_parser::lexer::token::Token;
+/// use pxp_parser::lexer::token::TokenKind;
+/// use pxp_parser::lexer::stream::TokenStream;
 ///
 /// let tokens = vec![
 ///     Token { kind: TokenKind::SingleLineComment("// some class".into()), span: (1, 1) },

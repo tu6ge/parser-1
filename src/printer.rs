@@ -10,8 +10,8 @@ use crate::lexer::token::TokenKind;
 ///
 /// ```
 /// use pretty_assertions::assert_str_eq;
-/// use php_parser_rs::lexer::Lexer;
-/// use php_parser_rs::printer::print;
+/// use pxp_parser::lexer::Lexer;
+/// use pxp_parser::printer::print;
 ///
 /// let code = r#"
 /// <?php

@@ -7,12 +7,12 @@ build:
 
 # regenerate test snapshots
 snapshot:
-    cargo run --bin php-parser-snapshot
+    cargo run --bin pxp-parser-snapshot
 
 # regenerate schema
 schema:
     rm schema.json
-    cargo run --bin php-parser-schema >> schema.json
+    cargo run --bin pxp-parser-schema >> schema.json
 
 # detect linting problems.
 lint:
@@ -27,7 +27,7 @@ fix:
 
 # dump AST for the given file.
 dump file *args:
-    cargo run -r --bin php-parser-rs -- {{file}} {{args}}
+    cargo run -r --bin pxp-parser-rs -- {{file}} {{args}}
 
 # run all integration tests, except third-party.
 test filter='--all':

@@ -4,7 +4,7 @@ use std::path::PathBuf;
 use std::process::Command;
 use std::thread;
 
-use php_parser_rs::lexer::Lexer;
+use pxp_parser::lexer::Lexer;
 
 enum TestResult {
     Success,
@@ -419,7 +419,7 @@ fn test_repository(name: &str, repository: &str, ignore: &[&str]) {
                 let code = std::fs::read(filename).unwrap();
 
                 match Lexer::new().tokenize(&code) {
-                    Ok(tokens) => match php_parser_rs::construct(&tokens) {
+                    Ok(tokens) => match pxp_parser::construct(&tokens) {
                         Ok(_) => {
                             results.push(TestResult::Success);
                         }
