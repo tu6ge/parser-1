@@ -21,6 +21,19 @@ or use `cargo add`
 cargo add pxp-parser --git https://github.com/php-rust-tools/pxp-parser
 ```
 
+## Differences
+
+PXP is a strict superset of PHP so everything that is supported by PHP is also supported by PXP. Regardless of this, PXP is still able to implement a range of additional syntactial features on top of PHP's "vanilla" syntax.
+
+* Short match expressions
+* Multi-line match arms
+* Local type aliases
+* Use-able type aliases (todo)
+* Generics, including (but not limited to) `array<K, V>`, `Closure<(int, int), int>`  (todo)
+* Auto-capturing multi-line closures (todo)
+
+The list above is just a short list of the current plans for PXP. As ideas and concepts are finalised, the list will be updated.
+
 ### Example
 
 ```rust
