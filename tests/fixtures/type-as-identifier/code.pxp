@@ -1,0 +1,11 @@
+<?php
+
+function type() {}
+function Type() {}
+
+class Type {
+    function type(Type $type) {}
+}
+class type {
+    function type(Type $type) {}
+}
