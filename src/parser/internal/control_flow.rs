@@ -14,6 +14,7 @@ use crate::parser::ast::Case;
 use crate::parser::ast::DefaultMatchArm;
 use crate::parser::ast::Expression;
 use crate::parser::ast::MatchArm;
+use crate::parser::ast::MatchArmBody;
 use crate::parser::ast::Statement;
 use crate::parser::ast::SwitchStatement;
 use crate::parser::ast::{Block, MatchExpression};
@@ -30,9 +31,9 @@ pub fn match_expression(state: &mut State) -> ParseResult<Expression> {
     match state.stream.current().kind {
         TokenKind::LeftBrace => {
             utils::skip_left_brace(state)?;
-        
+
             let (default, arms) = match_arms(state)?;
-        
+
             utils::skip_right_brace(state)?;
         
             Ok(Expression::ShortMatch(ShortMatchExpression {
@@ -42,14 +43,15 @@ pub fn match_expression(state: &mut State) -> ParseResult<Expression> {
             }))
         },
         _ => {
-            let (left_parenthesis, condition, right_parenthesis) = utils::parenthesized(state, &|state: &mut State| {
-                expressions::create(state).map(Box::new)
-            })?;
-        
+            let (left_parenthesis, condition, right_parenthesis) =
+                utils::parenthesized(state, &|state: &mut State| {
+                    expressions::create(state).map(Box::new)
+                })?;
+
             let left_brace = utils::skip_left_brace(state)?;
-        
+
             let (default, arms) = match_arms(state)?;
-        
+
             let right_brace = utils::skip_right_brace(state)?;
         
             Ok(Expression::Match(MatchExpression {
@@ -140,9 +142,13 @@ fn match_arm_body(state: &mut State) -> ParseResult<MatchArmBody> {
             let statements = blocks::multiple_statements_until(state, &TokenKind::RightBrace)?;
             let right_brace = utils::skip(state, TokenKind::RightBrace)?;
 
-            Ok(MatchArmBody::Block { left_brace, statements, right_brace })
-        },
-        _ => Ok(MatchArmBody::Expression(expressions::create(state)?))
+            Ok(MatchArmBody::Block {
+                left_brace,
+                statements,
+                right_brace,
+            })
+        }
+        _ => Ok(MatchArmBody::Expression(expressions::create(state)?)),
     }
 }
 

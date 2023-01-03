@@ -80,6 +80,7 @@ impl Precedence {
             Increment | Decrement => Self::IncDec,
             LeftParen | LeftBracket => Self::CallDim,
             Arrow | QuestionArrow | DoubleColon => Self::ObjectAccess,
+            ExclusiveRange => Self::Concat,
             _ => unimplemented!("postfix precedence for op {:?}", kind),
         }
     }

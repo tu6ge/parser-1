@@ -508,4 +508,8 @@ pub enum RangeOperationExpression {
         double_dot_equals: Span,
         upper_bound: Box<Expression>,
     },
+    Endless {
+        lower_bound: Box<Expression>,
+        double_dot: Span,
+    },
 }

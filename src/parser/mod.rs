@@ -130,8 +130,14 @@ fn top_level_statement(state: &mut State) -> ParseResult<Statement> {
             let r#type = data_type(state)?;
             let semicolon = skip_semicolon(state)?;
 
-            Statement::TypeAlias { type_keyword, name, equals, r#type, semicolon }
-        },
+            Statement::TypeAlias {
+                type_keyword,
+                name,
+                equals,
+                r#type,
+                semicolon,
+            }
+        }
         _ => statement(state)?,
     };
 

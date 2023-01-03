@@ -251,12 +251,12 @@ pub enum Statement {
     Noop(Span),
     // `type number = int|float;`
     TypeAlias {
-        type_keyword: Span,     // `type`
-        name: SimpleIdentifier, 
-        equals: Span,           // `=`
+        type_keyword: Span, // `type`
+        name: SimpleIdentifier,
+        equals: Span, // `=`
         r#type: Type,
-        semicolon: Span,        // `;`
-    }
+        semicolon: Span, // `;`
+    },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
@@ -1398,8 +1398,8 @@ impl Node for Expression {
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
 
 pub struct DefaultMatchArm {
-    pub keyword: Span,        // `default`
-    pub double_arrow: Span,   // `=>`
+    pub keyword: Span,      // `default`
+    pub double_arrow: Span, // `=>`
     pub body: MatchArmBody,
 }
 

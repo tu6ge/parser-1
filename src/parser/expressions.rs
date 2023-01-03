@@ -85,7 +85,7 @@ fn for_precedence(state: &mut State, precedence: Precedence) -> ParseResult<Expr
             break;
         }
 
-        if is_postfix(kind) {
+        if is_postfix(state, kind) {
             let lpred = Precedence::postfix(kind);
 
             if lpred < precedence {
@@ -1493,6 +1493,15 @@ fn postfix(state: &mut State, lhs: Expression, op: &TokenKind) -> ParseResult<Ex
                 decrement: span,
             })
         }
+        TokenKind::ExclusiveRange => {
+            let span = state.stream.current().span;
+            state.stream.next();
+
+            Expression::RangeOperation(RangeOperation::Endless {
+                lower_bound: Box::new(lhs),
+                double_dot: span
+            })
+        },
         _ => todo!("postfix: {:?}", op),
     })
 }
@@ -1550,16 +1559,26 @@ fn is_infix(t: &TokenKind) -> bool {
 }
 
 #[inline(always)]
-fn is_postfix(t: &TokenKind) -> bool {
-    matches!(
-        t,
+fn is_postfix(state: &State, t: &TokenKind) -> bool {
+    match t {
+        TokenKind::ExclusiveRange => match state.stream.peek().kind {
+            TokenKind::Comma
+            | TokenKind::SemiColon
+            | TokenKind::CloseTag
+            | TokenKind::RightParen
+            | TokenKind::RightBracket
+            | TokenKind::RightBrace
+            | TokenKind::As => true,
+            _ => false,
+        },
         TokenKind::Increment
-            | TokenKind::Decrement
-            | TokenKind::LeftParen
-            | TokenKind::LeftBracket
-            | TokenKind::Arrow
-            | TokenKind::QuestionArrow
-            | TokenKind::DoubleColon
-            | TokenKind::DoubleQuestion
-    )
+        | TokenKind::Decrement
+        | TokenKind::LeftParen
+        | TokenKind::LeftBracket
+        | TokenKind::Arrow
+        | TokenKind::QuestionArrow
+        | TokenKind::DoubleColon
+        | TokenKind::DoubleQuestion => true,
+        _ => false,
+    }
 }
