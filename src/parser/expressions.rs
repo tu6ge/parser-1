@@ -1499,9 +1499,9 @@ fn postfix(state: &mut State, lhs: Expression, op: &TokenKind) -> ParseResult<Ex
 
             Expression::RangeOperation(RangeOperation::Endless {
                 lower_bound: Box::new(lhs),
-                double_dot: span
+                double_dot: span,
             })
-        },
+        }
         _ => todo!("postfix: {:?}", op),
     })
 }
