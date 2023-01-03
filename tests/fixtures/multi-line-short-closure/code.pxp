@@ -1,0 +1,10 @@
+<?php
+
+function curry($callable, ...$initialArguments) {
+    return fn (...$args) {
+        $args = array_merge($initialArguments, $args);
+        return call_user_func_array($callable, $args);
+    };
+}
+
+fn () => null;

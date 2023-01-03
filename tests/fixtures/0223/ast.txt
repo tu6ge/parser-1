@@ -1647,23 +1647,25 @@
                                 },
                             },
                             return_type: None,
-                            double_arrow: Span {
-                                line: 52,
-                                column: 18,
-                                position: 528,
-                            },
-                            body: Literal(
-                                Integer(
-                                    LiteralInteger {
-                                        value: "0",
-                                        span: Span {
-                                            line: 52,
-                                            column: 21,
-                                            position: 531,
+                            body: Expression {
+                                double_arrow: Span {
+                                    line: 52,
+                                    column: 18,
+                                    position: 528,
+                                },
+                                expression: Literal(
+                                    Integer(
+                                        LiteralInteger {
+                                            value: "0",
+                                            span: Span {
+                                                line: 52,
+                                                column: 21,
+                                                position: 531,
+                                            },
                                         },
-                                    },
+                                    ),
                                 ),
-                            ),
+                            },
                         },
                     ),
                 },
@@ -1899,23 +1901,25 @@
                                 },
                             },
                             return_type: None,
-                            double_arrow: Span {
-                                line: 54,
-                                column: 25,
-                                position: 592,
-                            },
-                            body: Literal(
-                                Integer(
-                                    LiteralInteger {
-                                        value: "0",
-                                        span: Span {
-                                            line: 54,
-                                            column: 28,
-                                            position: 595,
+                            body: Expression {
+                                double_arrow: Span {
+                                    line: 54,
+                                    column: 25,
+                                    position: 592,
+                                },
+                                expression: Literal(
+                                    Integer(
+                                        LiteralInteger {
+                                            value: "0",
+                                            span: Span {
+                                                line: 54,
+                                                column: 28,
+                                                position: 595,
+                                            },
                                         },
-                                    },
+                                    ),
                                 ),
-                            ),
+                            },
                         },
                     ),
                 },

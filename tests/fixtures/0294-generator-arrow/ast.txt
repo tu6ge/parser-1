@@ -100,10 +100,23 @@
                                             ),
                                         },
                                     ),
+<<<<<<< HEAD
                                     end: Span {
                                         line: 3,
                                         column: 33,
                                         position: 39,
+=======
+                                    body: Expression {
+                                        double_arrow: Span {
+                                            line: 3,
+                                            column: 25,
+                                            position: 31,
+                                        },
+                                        expression: Yield {
+                                            key: None,
+                                            value: None,
+                                        },
+>>>>>>> fe07bdd (feature: multi-line short closure)
                                     },
                                 },
                             ),

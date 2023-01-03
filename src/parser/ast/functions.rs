@@ -195,8 +195,21 @@ pub struct ArrowFunctionExpression {
     pub attributes: Vec<AttributeGroup>,
     pub parameters: FunctionParameterList,
     pub return_type: Option<ReturnType>,
-    pub double_arrow: Span,
-    pub body: Box<Expression>,
+    pub body: ArrowFunctionBody,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum ArrowFunctionBody {
+    Block {
+        left_brace: Span,
+        statements: Vec<Statement>,
+        right_brace: Span,
+    },
+    Expression {
+        double_arrow: Span,
+        expression: Box<Expression>,
+    },
 }
 
 impl Node for ArrowFunctionExpression {

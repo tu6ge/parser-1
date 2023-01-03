@@ -65,213 +65,221 @@
                 position: 25,
             },
             body: Statement(
-                Block {
-                    left_brace: Span {
-                        line: 3,
-                        column: 21,
-                        position: 27,
+                Block(
+                    BlockStatement {
+                        left_brace: Span {
+                            line: 3,
+                            column: 21,
+                            position: 27,
+                        },
+                        statements: [],
+                        right_brace: Span {
+                            line: 5,
+                            column: 1,
+                            position: 30,
+                        },
                     },
-                    statements: [],
-                    right_brace: Span {
-                        line: 5,
-                        column: 1,
-                        position: 30,
+                ),
+            ),
+        },
+    ),
+    Expression(
+        ExpressionStatement {
+            expression: AssignmentOperation(
+                Assign {
+                    left: Variable(
+                        SimpleVariable(
+                            SimpleVariable {
+                                span: Span {
+                                    line: 7,
+                                    column: 1,
+                                    position: 33,
+                                },
+                                name: "$a",
+                            },
+                        ),
+                    ),
+                    equals: Span {
+                        line: 7,
+                        column: 4,
+                        position: 36,
                     },
+                    right: RangeOperation(
+                        Endless {
+                            lower_bound: Literal(
+                                Integer(
+                                    LiteralInteger {
+                                        value: "1",
+                                        span: Span {
+                                            line: 7,
+                                            column: 6,
+                                            position: 38,
+                                        },
+                                    },
+                                ),
+                            ),
+                            double_dot: Span {
+                                line: 7,
+                                column: 7,
+                                position: 39,
+                            },
+                        },
+                    ),
+                },
+            ),
+            ending: Semicolon(
+                Span {
+                    line: 7,
+                    column: 9,
+                    position: 41,
                 },
             ),
         },
     ),
-    Expression {
-        expression: AssignmentOperation(
-            Assign {
-                left: Variable(
-                    SimpleVariable(
-                        SimpleVariable {
-                            span: Span {
-                                line: 7,
-                                column: 1,
-                                position: 33,
-                            },
-                            name: "$a",
-                        },
-                    ),
-                ),
-                equals: Span {
-                    line: 7,
-                    column: 4,
-                    position: 36,
-                },
-                right: RangeOperation(
-                    Endless {
-                        lower_bound: Literal(
-                            Integer(
-                                LiteralInteger {
-                                    value: "1",
-                                    span: Span {
-                                        line: 7,
-                                        column: 6,
-                                        position: 38,
-                                    },
+    Expression(
+        ExpressionStatement {
+            expression: AssignmentOperation(
+                Assign {
+                    left: Variable(
+                        SimpleVariable(
+                            SimpleVariable {
+                                span: Span {
+                                    line: 8,
+                                    column: 1,
+                                    position: 43,
                                 },
-                            ),
+                                name: "$b",
+                            },
                         ),
-                        double_dot: Span {
-                            line: 7,
-                            column: 7,
-                            position: 39,
-                        },
+                    ),
+                    equals: Span {
+                        line: 8,
+                        column: 4,
+                        position: 46,
                     },
-                ),
-            },
-        ),
-        ending: Semicolon(
-            Span {
-                line: 7,
-                column: 9,
-                position: 41,
-            },
-        ),
-    },
-    Expression {
-        expression: AssignmentOperation(
-            Assign {
-                left: Variable(
-                    SimpleVariable(
-                        SimpleVariable {
-                            span: Span {
-                                line: 8,
-                                column: 1,
-                                position: 43,
-                            },
-                            name: "$b",
-                        },
-                    ),
-                ),
-                equals: Span {
-                    line: 8,
-                    column: 4,
-                    position: 46,
-                },
-                right: RangeOperation(
-                    Exclusive {
-                        lower_bound: Literal(
-                            Integer(
-                                LiteralInteger {
-                                    value: "1",
-                                    span: Span {
-                                        line: 8,
-                                        column: 6,
-                                        position: 48,
-                                    },
-                                },
-                            ),
-                        ),
-                        double_dot: Span {
-                            line: 8,
-                            column: 7,
-                            position: 49,
-                        },
-                        upper_bound: Parenthesized {
-                            start: Span {
-                                line: 8,
-                                column: 9,
-                                position: 51,
-                            },
-                            expr: Literal(
+                    right: RangeOperation(
+                        Exclusive {
+                            lower_bound: Literal(
                                 Integer(
                                     LiteralInteger {
-                                        value: "2",
+                                        value: "1",
                                         span: Span {
                                             line: 8,
-                                            column: 10,
-                                            position: 52,
+                                            column: 6,
+                                            position: 48,
                                         },
                                     },
                                 ),
                             ),
-                            end: Span {
+                            double_dot: Span {
                                 line: 8,
-                                column: 11,
-                                position: 53,
+                                column: 7,
+                                position: 49,
                             },
-                        },
-                    },
-                ),
-            },
-        ),
-        ending: Semicolon(
-            Span {
-                line: 8,
-                column: 12,
-                position: 54,
-            },
-        ),
-    },
-    Expression {
-        expression: FunctionCall {
-            target: Identifier(
-                SimpleIdentifier(
-                    SimpleIdentifier {
-                        span: Span {
-                            line: 9,
-                            column: 1,
-                            position: 56,
-                        },
-                        value: "a",
-                    },
-                ),
-            ),
-            arguments: ArgumentList {
-                comments: CommentGroup {
-                    comments: [],
-                },
-                left_parenthesis: Span {
-                    line: 9,
-                    column: 2,
-                    position: 57,
-                },
-                arguments: [
-                    Positional {
-                        comments: CommentGroup {
-                            comments: [],
-                        },
-                        ellipsis: None,
-                        value: RangeOperation(
-                            Endless {
-                                lower_bound: Literal(
+                            upper_bound: Parenthesized {
+                                start: Span {
+                                    line: 8,
+                                    column: 9,
+                                    position: 51,
+                                },
+                                expr: Literal(
                                     Integer(
                                         LiteralInteger {
-                                            value: "1",
+                                            value: "2",
                                             span: Span {
-                                                line: 9,
-                                                column: 3,
-                                                position: 58,
+                                                line: 8,
+                                                column: 10,
+                                                position: 52,
                                             },
                                         },
                                     ),
                                 ),
-                                double_dot: Span {
-                                    line: 9,
-                                    column: 4,
-                                    position: 59,
+                                end: Span {
+                                    line: 8,
+                                    column: 11,
+                                    position: 53,
                                 },
                             },
-                        ),
+                        },
+                    ),
+                },
+            ),
+            ending: Semicolon(
+                Span {
+                    line: 8,
+                    column: 12,
+                    position: 54,
+                },
+            ),
+        },
+    ),
+    Expression(
+        ExpressionStatement {
+            expression: FunctionCall {
+                target: Identifier(
+                    SimpleIdentifier(
+                        SimpleIdentifier {
+                            span: Span {
+                                line: 9,
+                                column: 1,
+                                position: 56,
+                            },
+                            value: "a",
+                        },
+                    ),
+                ),
+                arguments: ArgumentList {
+                    comments: CommentGroup {
+                        comments: [],
                     },
-                ],
-                right_parenthesis: Span {
-                    line: 9,
-                    column: 6,
-                    position: 61,
+                    left_parenthesis: Span {
+                        line: 9,
+                        column: 2,
+                        position: 57,
+                    },
+                    arguments: [
+                        Positional {
+                            comments: CommentGroup {
+                                comments: [],
+                            },
+                            ellipsis: None,
+                            value: RangeOperation(
+                                Endless {
+                                    lower_bound: Literal(
+                                        Integer(
+                                            LiteralInteger {
+                                                value: "1",
+                                                span: Span {
+                                                    line: 9,
+                                                    column: 3,
+                                                    position: 58,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                    double_dot: Span {
+                                        line: 9,
+                                        column: 4,
+                                        position: 59,
+                                    },
+                                },
+                            ),
+                        },
+                    ],
+                    right_parenthesis: Span {
+                        line: 9,
+                        column: 6,
+                        position: 61,
+                    },
                 },
             },
+            ending: Semicolon(
+                Span {
+                    line: 9,
+                    column: 7,
+                    position: 62,
+                },
+            ),
         },
-        ending: Semicolon(
-            Span {
-                line: 9,
-                column: 7,
-                position: 62,
-            },
-        ),
-    },
+    ),
 ]

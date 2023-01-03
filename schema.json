@@ -1005,7 +1005,6 @@
         "attributes",
         "body",
         "comments",
-        "double_arrow",
         "fn",
         "parameters"
       ],
@@ -1027,13 +1026,10 @@
           }
         },
         "body": {
-          "$ref": "#/definitions/Expression"
+          "$ref": "#/definitions/ArrowFunctionBody"
         },
         "comments": {
           "$ref": "#/definitions/CommentGroup"
-        },
-        "double_arrow": {
-          "$ref": "#/definitions/Span"
         },
         "fn": {
           "$ref": "#/definitions/Span"
@@ -1063,7 +1059,70 @@
         }
       }
     },
+<<<<<<< HEAD
     "AssignmentOperationExpression": {
+=======
+    "ArrowFunctionBody": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "block"
+          ],
+          "properties": {
+            "block": {
+              "type": "object",
+              "required": [
+                "left_brace",
+                "right_brace",
+                "statements"
+              ],
+              "properties": {
+                "left_brace": {
+                  "$ref": "#/definitions/Span"
+                },
+                "right_brace": {
+                  "$ref": "#/definitions/Span"
+                },
+                "statements": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Statement"
+                  }
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "expression"
+          ],
+          "properties": {
+            "expression": {
+              "type": "object",
+              "required": [
+                "double_arrow",
+                "expression"
+              ],
+              "properties": {
+                "double_arrow": {
+                  "$ref": "#/definitions/Span"
+                },
+                "expression": {
+                  "$ref": "#/definitions/Expression"
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "AssignmentOperation": {
+>>>>>>> fe07bdd (feature: multi-line short closure)
       "oneOf": [
         {
           "type": "object",
