@@ -8299,6 +8299,36 @@
               }
             }
           }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "endless"
+              ]
+            },
+            "value": {
+              "type": "object",
+              "required": [
+                "double_dot",
+                "lower_bound"
+              ],
+              "properties": {
+                "double_dot": {
+                  "$ref": "#/definitions/Span"
+                },
+                "lower_bound": {
+                  "$ref": "#/definitions/Expression"
+                }
+              }
+            }
+          }
         }
       ]
 >>>>>>> cb545f8 (chore: schema)
