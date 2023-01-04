@@ -6,8 +6,7 @@ use std::fmt::Display;
 
 use crate::lexer::byte_string::ByteString;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Deserialize, Serialize, JsonSchema)]
-
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Deserialize, Serialize, JsonSchema, Default)]
 pub struct Span {
     pub line: usize,
     pub column: usize,
