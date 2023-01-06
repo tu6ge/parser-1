@@ -1391,6 +1391,15 @@ impl Node for Expression {
             Expression::YieldFrom(expression) => vec![expression],
             Expression::Cast(expression) => vec![expression],
             Expression::Noop => vec![],
+            Expression::RangeOperation(operation) => operation.children(),
+            Expression::ShortMatch { default, arms, .. } => {
+                let mut children: Vec<&dyn Node> = vec![];
+                if let Some(default) = default {
+                    children.push(default.as_ref());
+                }
+                children.extend(arms.iter().map(|arm| arm as &dyn Node).collect::<Vec<&dyn Node>>());
+                children
+            },
         }
     }
 }
@@ -1428,6 +1437,15 @@ pub enum MatchArmBody {
     },
     // *expression*
     Expression(Expression),
+}
+
+impl Node for MatchArmBody {
+    fn children(&self) -> Vec<&dyn Node> {
+        match self {
+            MatchArmBody::Block { statements, .. } => vec![statements],
+            MatchArmBody::Expression(expression) => vec![expression],
+        }
+    }
 }
 
 impl Node for MatchArm {

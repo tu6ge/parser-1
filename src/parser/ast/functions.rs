@@ -212,13 +212,22 @@ pub enum ArrowFunctionBody {
     },
 }
 
+impl Node for ArrowFunctionBody {
+    fn children(&self) -> Vec<&dyn Node> {
+        match self {
+            ArrowFunctionBody::Block { statements, .. } => statements.iter().map(|s| s as &dyn Node).collect::<Vec<&dyn Node>>(),
+            ArrowFunctionBody::Expression { expression, .. } => vec![expression.as_ref()],
+        }
+    }
+}
+
 impl Node for ArrowFunctionExpression {
     fn children(&mut self) -> Vec<&mut dyn Node> {
         let mut children: Vec<&mut dyn Node> = vec![&mut self.parameters];
         if let Some(return_type) = &mut self.return_type {
             children.push(return_type);
         }
-        children.push(self.body.as_mut());
+        children.push(&mut self.body);
         children
     }
 }
