@@ -43,9 +43,9 @@ use self::ast::InlineHtmlStatement;
 use self::ast::ReturnStatement;
 use self::ast::ShortOpeningTagStatement;
 use self::ast::StaticStatement;
-use self::internal::precedences::Precedence;
 use self::internal::data_type::data_type;
 use self::internal::identifiers::identifier;
+use self::internal::precedences::Precedence;
 use self::internal::utils::skip_semicolon;
 
 pub mod ast;

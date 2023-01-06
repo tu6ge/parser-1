@@ -1397,9 +1397,13 @@ impl Node for Expression {
                 if let Some(default) = default {
                     children.push(default.as_ref());
                 }
-                children.extend(arms.iter().map(|arm| arm as &dyn Node).collect::<Vec<&dyn Node>>());
+                children.extend(
+                    arms.iter()
+                        .map(|arm| arm as &dyn Node)
+                        .collect::<Vec<&dyn Node>>(),
+                );
                 children
-            },
+            }
         }
     }
 }

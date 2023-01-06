@@ -182,7 +182,11 @@ fn arrow_function_body(state: &mut State) -> ParseResult<ArrowFunctionBody> {
         let statements = blocks::multiple_statements_until(state, &TokenKind::RightBrace)?;
         let right_brace = utils::skip_right_brace(state)?;
 
-        Ok(ArrowFunctionBody::Block { left_brace, statements, right_brace })
+        Ok(ArrowFunctionBody::Block {
+            left_brace,
+            statements,
+            right_brace,
+        })
     } else {
         let double_arrow = utils::skip(state, TokenKind::DoubleArrow)?;
         let expression = Box::new(expressions::create(state)?);

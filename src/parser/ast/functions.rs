@@ -215,7 +215,10 @@ pub enum ArrowFunctionBody {
 impl Node for ArrowFunctionBody {
     fn children(&self) -> Vec<&dyn Node> {
         match self {
-            ArrowFunctionBody::Block { statements, .. } => statements.iter().map(|s| s as &dyn Node).collect::<Vec<&dyn Node>>(),
+            ArrowFunctionBody::Block { statements, .. } => statements
+                .iter()
+                .map(|s| s as &dyn Node)
+                .collect::<Vec<&dyn Node>>(),
             ArrowFunctionBody::Expression { expression, .. } => vec![expression.as_ref()],
         }
     }

@@ -517,8 +517,16 @@ pub enum RangeOperationExpression {
 impl Node for RangeOperation {
     fn children(&self) -> Vec<&dyn Node> {
         match self {
-            RangeOperation::Exclusive { lower_bound, upper_bound, .. } => vec![lower_bound.as_ref(), upper_bound.as_ref()],
-            RangeOperation::Inclusive { lower_bound, upper_bound, .. } => vec![lower_bound.as_ref(), upper_bound.as_ref()],
+            RangeOperation::Exclusive {
+                lower_bound,
+                upper_bound,
+                ..
+            } => vec![lower_bound.as_ref(), upper_bound.as_ref()],
+            RangeOperation::Inclusive {
+                lower_bound,
+                upper_bound,
+                ..
+            } => vec![lower_bound.as_ref(), upper_bound.as_ref()],
             RangeOperation::Endless { lower_bound, .. } => vec![lower_bound.as_ref()],
         }
     }
