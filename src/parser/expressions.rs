@@ -60,6 +60,7 @@ use super::ast::ThrowExpression;
 use super::ast::UnsetExpression;
 use super::ast::YieldExpression;
 use super::ast::YieldFromExpression;
+use super::ast::operators::RangeOperationExpression;
 
 pub fn create(state: &mut State) -> ParseResult<Expression> {
     for_precedence(state, Precedence::Lowest)
@@ -232,7 +233,7 @@ fn for_precedence(state: &mut State, precedence: Precedence) -> ParseResult<Expr
                     let from_value = op.value.clone();
                     state.stream.next();
 
-                    Expression::Instanceof {
+                    Expression::Instanceof(InstanceofExpression {
                         left: Box::new(left),
                         instanceof: span,
                         right: Box::new(Expression::Identifier(Identifier::SimpleIdentifier(
@@ -241,7 +242,7 @@ fn for_precedence(state: &mut State, precedence: Precedence) -> ParseResult<Expr
                                 value: from_value,
                             },
                         ))),
-                    }
+                    })
                 }
                 _ => {
                     let left = Box::new(left);
@@ -1497,7 +1498,7 @@ fn postfix(state: &mut State, lhs: Expression, op: &TokenKind) -> ParseResult<Ex
             let span = state.stream.current().span;
             state.stream.next();
 
-            Expression::RangeOperation(RangeOperation::Endless {
+            Expression::RangeOperation(RangeOperationExpression::Endless {
                 lower_bound: Box::new(lhs),
                 double_dot: span,
             })

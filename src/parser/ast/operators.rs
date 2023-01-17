@@ -514,20 +514,20 @@ pub enum RangeOperationExpression {
     },
 }
 
-impl Node for RangeOperation {
+impl Node for RangeOperationExpression {
     fn children(&mut self) -> Vec<&mut dyn Node> {
         match self {
-            RangeOperation::Exclusive {
+            RangeOperationExpression::Exclusive {
                 lower_bound,
                 upper_bound,
                 ..
             } => vec![lower_bound.as_mut(), upper_bound.as_mut()],
-            RangeOperation::Inclusive {
+            RangeOperationExpression::Inclusive {
                 lower_bound,
                 upper_bound,
                 ..
             } => vec![lower_bound.as_mut(), upper_bound.as_mut()],
-            RangeOperation::Endless { lower_bound, .. } => vec![lower_bound.as_mut()],
+            RangeOperationExpression::Endless { lower_bound, .. } => vec![lower_bound.as_mut()],
         }
     }
 }

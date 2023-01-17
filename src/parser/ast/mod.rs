@@ -1390,20 +1390,8 @@ impl Node for Expression {
             Expression::Yield(expression) => vec![expression],
             Expression::YieldFrom(expression) => vec![expression],
             Expression::Cast(expression) => vec![expression],
+            Expression::RangeOperation(expression) => vec![expression],
             Expression::Noop => vec![],
-            Expression::RangeOperation(operation) => operation.children(),
-            Expression::ShortMatch { default, arms, .. } => {
-                let mut children: Vec<&mut dyn Node> = vec![];
-                if let Some(default) = default {
-                    children.push(default.as_mut());
-                }
-                children.extend(
-                    arms.iter_mut()
-                        .map(|arm| arm as &mut dyn Node)
-                        .collect::<Vec<&mut dyn Node>>(),
-                );
-                children
-            }
         }
     }
 }

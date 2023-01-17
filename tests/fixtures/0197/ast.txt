@@ -119,7 +119,9 @@
                                         column: 14,
                                         position: 119,
                                     },
-                                    body: Null,
+                                    body: Expression(
+                                        Null,
+                                    ),
                                 },
                             ),
                             arms: [
@@ -179,93 +181,16 @@
                                         column: 13,
                                         position: 47,
                                     },
-                                    body: Null,
+                                    body: Expression(
+                                        Null,
+                                    ),
                                 },
-<<<<<<< HEAD
                             ],
                             right_brace: Span {
                                 line: 10,
                                 column: 1,
                                 position: 128,
                             },
-=======
-                                double_arrow: Span {
-                                    line: 9,
-                                    column: 14,
-                                    position: 119,
-                                },
-                                body: Expression(
-                                    Null,
-                                ),
-                            },
-                        ),
-                        arms: [
-                            MatchArm {
-                                conditions: [
-                                    Literal(
-                                        Integer(
-                                            LiteralInteger {
-                                                value: "1",
-                                                span: Span {
-                                                    line: 7,
-                                                    column: 5,
-                                                    position: 39,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                    Literal(
-                                        Integer(
-                                            LiteralInteger {
-                                                value: "2",
-                                                span: Span {
-                                                    line: 7,
-                                                    column: 7,
-                                                    position: 41,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                    Literal(
-                                        Integer(
-                                            LiteralInteger {
-                                                value: "3",
-                                                span: Span {
-                                                    line: 7,
-                                                    column: 9,
-                                                    position: 43,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                    Literal(
-                                        Integer(
-                                            LiteralInteger {
-                                                value: "4",
-                                                span: Span {
-                                                    line: 7,
-                                                    column: 11,
-                                                    position: 45,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                ],
-                                arrow: Span {
-                                    line: 7,
-                                    column: 13,
-                                    position: 47,
-                                },
-                                body: Expression(
-                                    Null,
-                                ),
-                            },
-                        ],
-                        right_brace: Span {
-                            line: 10,
-                            column: 1,
-                            position: 128,
->>>>>>> 0823da1 (feature: multi-line match arms)
                         },
                     ),
                 },

@@ -8,113 +8,115 @@
     ),
     Expression(
         ExpressionStatement {
-            expression: Match {
-                keyword: Span {
-                    line: 3,
-                    column: 1,
-                    position: 7,
-                },
-                left_parenthesis: Span {
-                    line: 3,
-                    column: 7,
-                    position: 13,
-                },
-                condition: Variable(
-                    SimpleVariable(
-                        SimpleVariable {
-                            span: Span {
-                                line: 3,
-                                column: 8,
-                                position: 14,
+            expression: Match(
+                MatchExpression {
+                    keyword: Span {
+                        line: 3,
+                        column: 1,
+                        position: 7,
+                    },
+                    left_parenthesis: Span {
+                        line: 3,
+                        column: 7,
+                        position: 13,
+                    },
+                    condition: Variable(
+                        SimpleVariable(
+                            SimpleVariable {
+                                span: Span {
+                                    line: 3,
+                                    column: 8,
+                                    position: 14,
+                                },
+                                name: "$foo",
                             },
-                            name: "$foo",
-                        },
+                        ),
                     ),
-                ),
-                right_parenthesis: Span {
-                    line: 3,
-                    column: 12,
-                    position: 18,
-                },
-                left_brace: Span {
-                    line: 3,
-                    column: 14,
-                    position: 20,
-                },
-                default: None,
-                arms: [
-                    MatchArm {
-                        conditions: [
-                            Literal(
-                                String(
-                                    LiteralString {
-                                        value: ""foo"",
-                                        span: Span {
-                                            line: 4,
-                                            column: 5,
-                                            position: 26,
-                                        },
-                                    },
-                                ),
-                            ),
-                        ],
-                        arrow: Span {
-                            line: 4,
-                            column: 11,
-                            position: 32,
-                        },
-                        body: Block {
-                            left_brace: Span {
-                                line: 4,
-                                column: 14,
-                                position: 35,
-                            },
-                            statements: [
-                                Return(
-                                    ReturnStatement {
-                                        return: Span {
-                                            line: 5,
-                                            column: 9,
-                                            position: 45,
-                                        },
-                                        value: Some(
-                                            Literal(
-                                                String(
-                                                    LiteralString {
-                                                        value: ""bar"",
-                                                        span: Span {
-                                                            line: 5,
-                                                            column: 16,
-                                                            position: 52,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        ending: Semicolon(
-                                            Span {
-                                                line: 5,
-                                                column: 21,
-                                                position: 57,
+                    right_parenthesis: Span {
+                        line: 3,
+                        column: 12,
+                        position: 18,
+                    },
+                    left_brace: Span {
+                        line: 3,
+                        column: 14,
+                        position: 20,
+                    },
+                    default: None,
+                    arms: [
+                        MatchArm {
+                            conditions: [
+                                Literal(
+                                    String(
+                                        LiteralString {
+                                            value: ""foo"",
+                                            span: Span {
+                                                line: 4,
+                                                column: 5,
+                                                position: 26,
                                             },
-                                        ),
-                                    },
+                                        },
+                                    ),
                                 ),
                             ],
-                            right_brace: Span {
-                                line: 6,
-                                column: 5,
-                                position: 63,
+                            arrow: Span {
+                                line: 4,
+                                column: 11,
+                                position: 32,
+                            },
+                            body: Block {
+                                left_brace: Span {
+                                    line: 4,
+                                    column: 14,
+                                    position: 35,
+                                },
+                                statements: [
+                                    Return(
+                                        ReturnStatement {
+                                            return: Span {
+                                                line: 5,
+                                                column: 9,
+                                                position: 45,
+                                            },
+                                            value: Some(
+                                                Literal(
+                                                    String(
+                                                        LiteralString {
+                                                            value: ""bar"",
+                                                            span: Span {
+                                                                line: 5,
+                                                                column: 16,
+                                                                position: 52,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            ending: Semicolon(
+                                                Span {
+                                                    line: 5,
+                                                    column: 21,
+                                                    position: 57,
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                right_brace: Span {
+                                    line: 6,
+                                    column: 5,
+                                    position: 63,
+                                },
                             },
                         },
+                    ],
+                    right_brace: Span {
+                        line: 7,
+                        column: 1,
+                        position: 66,
                     },
-                ],
-                right_brace: Span {
-                    line: 7,
-                    column: 1,
-                    position: 66,
                 },
-            },
+            ),
             ending: Semicolon(
                 Span {
                     line: 7,

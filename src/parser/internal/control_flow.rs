@@ -14,7 +14,6 @@ use crate::parser::ast::Case;
 use crate::parser::ast::DefaultMatchArm;
 use crate::parser::ast::Expression;
 use crate::parser::ast::MatchArm;
-use crate::parser::ast::MatchArmBody;
 use crate::parser::ast::Statement;
 use crate::parser::ast::SwitchStatement;
 use crate::parser::ast::{Block, MatchExpression};

@@ -176,30 +176,32 @@
                                 column: 7,
                                 position: 49,
                             },
-                            upper_bound: Parenthesized {
-                                start: Span {
-                                    line: 8,
-                                    column: 9,
-                                    position: 51,
-                                },
-                                expr: Literal(
-                                    Integer(
-                                        LiteralInteger {
-                                            value: "2",
-                                            span: Span {
-                                                line: 8,
-                                                column: 10,
-                                                position: 52,
+                            upper_bound: Parenthesized(
+                                ParenthesizedExpression {
+                                    start: Span {
+                                        line: 8,
+                                        column: 9,
+                                        position: 51,
+                                    },
+                                    expr: Literal(
+                                        Integer(
+                                            LiteralInteger {
+                                                value: "2",
+                                                span: Span {
+                                                    line: 8,
+                                                    column: 10,
+                                                    position: 52,
+                                                },
                                             },
-                                        },
+                                        ),
                                     ),
-                                ),
-                                end: Span {
-                                    line: 8,
-                                    column: 11,
-                                    position: 53,
+                                    end: Span {
+                                        line: 8,
+                                        column: 11,
+                                        position: 53,
+                                    },
                                 },
-                            },
+                            ),
                         },
                     ),
                 },
@@ -215,64 +217,68 @@
     ),
     Expression(
         ExpressionStatement {
-            expression: FunctionCall {
-                target: Identifier(
-                    SimpleIdentifier(
-                        SimpleIdentifier {
-                            span: Span {
-                                line: 9,
-                                column: 1,
-                                position: 56,
+            expression: FunctionCall(
+                FunctionCallExpression {
+                    target: Identifier(
+                        SimpleIdentifier(
+                            SimpleIdentifier {
+                                span: Span {
+                                    line: 9,
+                                    column: 1,
+                                    position: 56,
+                                },
+                                value: "a",
                             },
-                            value: "a",
-                        },
+                        ),
                     ),
-                ),
-                arguments: ArgumentList {
-                    comments: CommentGroup {
-                        comments: [],
-                    },
-                    left_parenthesis: Span {
-                        line: 9,
-                        column: 2,
-                        position: 57,
-                    },
-                    arguments: [
-                        Positional {
-                            comments: CommentGroup {
-                                comments: [],
-                            },
-                            ellipsis: None,
-                            value: RangeOperation(
-                                Endless {
-                                    lower_bound: Literal(
-                                        Integer(
-                                            LiteralInteger {
-                                                value: "1",
-                                                span: Span {
-                                                    line: 9,
-                                                    column: 3,
-                                                    position: 58,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                    double_dot: Span {
-                                        line: 9,
-                                        column: 4,
-                                        position: 59,
+                    arguments: ArgumentList {
+                        comments: CommentGroup {
+                            comments: [],
+                        },
+                        left_parenthesis: Span {
+                            line: 9,
+                            column: 2,
+                            position: 57,
+                        },
+                        arguments: [
+                            Positional(
+                                PositionalArgument {
+                                    comments: CommentGroup {
+                                        comments: [],
                                     },
+                                    ellipsis: None,
+                                    value: RangeOperation(
+                                        Endless {
+                                            lower_bound: Literal(
+                                                Integer(
+                                                    LiteralInteger {
+                                                        value: "1",
+                                                        span: Span {
+                                                            line: 9,
+                                                            column: 3,
+                                                            position: 58,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                            double_dot: Span {
+                                                line: 9,
+                                                column: 4,
+                                                position: 59,
+                                            },
+                                        },
+                                    ),
                                 },
                             ),
+                        ],
+                        right_parenthesis: Span {
+                            line: 9,
+                            column: 6,
+                            position: 61,
                         },
-                    ],
-                    right_parenthesis: Span {
-                        line: 9,
-                        column: 6,
-                        position: 61,
                     },
                 },
-            },
+            ),
             ending: Semicolon(
                 Span {
                     line: 9,

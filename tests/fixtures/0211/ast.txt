@@ -56,21 +56,22 @@
                                 column: 13,
                                 position: 127,
                             },
-                            body: Literal(
-                                Integer(
-                                    LiteralInteger {
-                                        value: "124",
-                                        span: Span {
-                                            line: 10,
-                                            column: 16,
-                                            position: 130,
+                            body: Expression(
+                                Literal(
+                                    Integer(
+                                        LiteralInteger {
+                                            value: "124",
+                                            span: Span {
+                                                line: 10,
+                                                column: 16,
+                                                position: 130,
+                                            },
                                         },
-                                    },
+                                    ),
                                 ),
                             ),
                         },
                     ),
-<<<<<<< HEAD
                     arms: [
                         MatchArm {
                             conditions: [
@@ -92,65 +93,21 @@
                                 column: 7,
                                 position: 27,
                             },
-                            body: Literal(
-=======
-                ),
-                right_parenthesis: Span {
-                    line: 4,
-                    column: 10,
-                    position: 17,
-                },
-                left_brace: Span {
-                    line: 4,
-                    column: 12,
-                    position: 19,
-                },
-                default: Some(
-                    DefaultMatchArm {
-                        keyword: Span {
-                            line: 10,
-                            column: 5,
-                            position: 119,
-                        },
-                        double_arrow: Span {
-                            line: 10,
-                            column: 13,
-                            position: 127,
-                        },
-                        body: Expression(
-                            Literal(
-                                Integer(
-                                    LiteralInteger {
-                                        value: "124",
-                                        span: Span {
-                                            line: 10,
-                                            column: 16,
-                                            position: 130,
+                            body: Expression(
+                                Literal(
+                                    Integer(
+                                        LiteralInteger {
+                                            value: "2",
+                                            span: Span {
+                                                line: 5,
+                                                column: 10,
+                                                position: 30,
+                                            },
                                         },
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-                arms: [
-                    MatchArm {
-                        conditions: [
-                            Literal(
->>>>>>> 0823da1 (feature: multi-line match arms)
-                                Integer(
-                                    LiteralInteger {
-                                        value: "2",
-                                        span: Span {
-                                            line: 5,
-                                            column: 10,
-                                            position: 30,
-                                        },
-                                    },
+                                    ),
                                 ),
                             ),
                         },
-<<<<<<< HEAD
                         MatchArm {
                             conditions: [
                                 Literal(
@@ -171,40 +128,21 @@
                                 column: 8,
                                 position: 40,
                             },
-                            body: Literal(
-=======
-                        body: Expression(
-                            Literal(
-                                Integer(
-                                    LiteralInteger {
-                                        value: "2",
-                                        span: Span {
-                                            line: 5,
-                                            column: 10,
-                                            position: 30,
+                            body: Expression(
+                                Literal(
+                                    Integer(
+                                        LiteralInteger {
+                                            value: "4",
+                                            span: Span {
+                                                line: 6,
+                                                column: 11,
+                                                position: 43,
+                                            },
                                         },
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                    MatchArm {
-                        conditions: [
-                            Literal(
->>>>>>> 0823da1 (feature: multi-line match arms)
-                                Integer(
-                                    LiteralInteger {
-                                        value: "4",
-                                        span: Span {
-                                            line: 6,
-                                            column: 11,
-                                            position: 43,
-                                        },
-                                    },
+                                    ),
                                 ),
                             ),
                         },
-<<<<<<< HEAD
                         MatchArm {
                             conditions: [
                                 Literal(
@@ -237,40 +175,21 @@
                                 column: 9,
                                 position: 54,
                             },
-                            body: Literal(
-=======
-                        body: Expression(
-                            Literal(
-                                Integer(
-                                    LiteralInteger {
-                                        value: "4",
-                                        span: Span {
-                                            line: 6,
-                                            column: 11,
-                                            position: 43,
+                            body: Expression(
+                                Literal(
+                                    Integer(
+                                        LiteralInteger {
+                                            value: "4",
+                                            span: Span {
+                                                line: 7,
+                                                column: 12,
+                                                position: 57,
+                                            },
                                         },
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                    MatchArm {
-                        conditions: [
-                            Literal(
->>>>>>> 0823da1 (feature: multi-line match arms)
-                                Integer(
-                                    LiteralInteger {
-                                        value: "4",
-                                        span: Span {
-                                            line: 7,
-                                            column: 12,
-                                            position: 57,
-                                        },
-                                    },
+                                    ),
                                 ),
                             ),
                         },
-<<<<<<< HEAD
                         MatchArm {
                             conditions: [
                                 Literal(
@@ -303,36 +222,18 @@
                                 column: 13,
                                 position: 72,
                             },
-                            body: Literal(
-=======
-                        body: Expression(
-                            Literal(
-                                Integer(
-                                    LiteralInteger {
-                                        value: "4",
-                                        span: Span {
-                                            line: 7,
-                                            column: 12,
-                                            position: 57,
+                            body: Expression(
+                                Literal(
+                                    Integer(
+                                        LiteralInteger {
+                                            value: "4",
+                                            span: Span {
+                                                line: 8,
+                                                column: 16,
+                                                position: 75,
+                                            },
                                         },
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                    MatchArm {
-                        conditions: [
-                            Literal(
->>>>>>> 0823da1 (feature: multi-line match arms)
-                                Integer(
-                                    LiteralInteger {
-                                        value: "4",
-                                        span: Span {
-                                            line: 8,
-                                            column: 16,
-                                            position: 75,
-                                        },
-                                    },
+                                    ),
                                 ),
                             ),
                         },
@@ -356,79 +257,26 @@
                                 column: 7,
                                 position: 84,
                             },
-                            body: Literal(
-                                Integer(
-                                    LiteralInteger {
-<<<<<<< HEAD
-                                        value: "43",
-=======
-                                        value: "123",
-                                        span: Span {
-                                            line: 8,
-                                            column: 8,
-                                            position: 67,
+                            body: Expression(
+                                Literal(
+                                    Integer(
+                                        LiteralInteger {
+                                            value: "43",
+                                            span: Span {
+                                                line: 9,
+                                                column: 10,
+                                                position: 87,
+                                            },
                                         },
-                                    },
-                                ),
-                            ),
-                        ],
-                        arrow: Span {
-                            line: 8,
-                            column: 13,
-                            position: 72,
-                        },
-                        body: Expression(
-                            Literal(
-                                Integer(
-                                    LiteralInteger {
-                                        value: "4",
-                                        span: Span {
-                                            line: 8,
-                                            column: 16,
-                                            position: 75,
-                                        },
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                    MatchArm {
-                        conditions: [
-                            Identifier(
-                                SimpleIdentifier(
-                                    SimpleIdentifier {
->>>>>>> 0823da1 (feature: multi-line match arms)
-                                        span: Span {
-                                            line: 9,
-                                            column: 10,
-                                            position: 87,
-                                        },
-                                    },
+                                    ),
                                 ),
                             ),
                         },
-<<<<<<< HEAD
                     ],
                     right_brace: Span {
                         line: 11,
                         column: 1,
                         position: 135,
-=======
-                        body: Expression(
-                            Literal(
-                                Integer(
-                                    LiteralInteger {
-                                        value: "43",
-                                        span: Span {
-                                            line: 9,
-                                            column: 10,
-                                            position: 87,
-                                        },
-                                    },
-                                ),
-                            ),
-                        ),
->>>>>>> 0823da1 (feature: multi-line match arms)
                     },
                 },
             ),

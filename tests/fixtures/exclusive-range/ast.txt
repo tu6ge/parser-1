@@ -54,59 +54,63 @@
         ExpressionStatement {
             expression: RangeOperation(
                 Exclusive {
-                    lower_bound: Parenthesized {
-                        start: Span {
-                            line: 4,
-                            column: 1,
-                            position: 13,
-                        },
-                        expr: Literal(
-                            Float(
-                                LiteralFloat {
-                                    value: "1.5",
-                                    span: Span {
-                                        line: 4,
-                                        column: 2,
-                                        position: 14,
+                    lower_bound: Parenthesized(
+                        ParenthesizedExpression {
+                            start: Span {
+                                line: 4,
+                                column: 1,
+                                position: 13,
+                            },
+                            expr: Literal(
+                                Float(
+                                    LiteralFloat {
+                                        value: "1.5",
+                                        span: Span {
+                                            line: 4,
+                                            column: 2,
+                                            position: 14,
+                                        },
                                     },
-                                },
+                                ),
                             ),
-                        ),
-                        end: Span {
-                            line: 4,
-                            column: 5,
-                            position: 17,
+                            end: Span {
+                                line: 4,
+                                column: 5,
+                                position: 17,
+                            },
                         },
-                    },
+                    ),
                     double_dot: Span {
                         line: 4,
                         column: 6,
                         position: 18,
                     },
-                    upper_bound: Parenthesized {
-                        start: Span {
-                            line: 4,
-                            column: 8,
-                            position: 20,
-                        },
-                        expr: Literal(
-                            Float(
-                                LiteralFloat {
-                                    value: "3.5",
-                                    span: Span {
-                                        line: 4,
-                                        column: 9,
-                                        position: 21,
+                    upper_bound: Parenthesized(
+                        ParenthesizedExpression {
+                            start: Span {
+                                line: 4,
+                                column: 8,
+                                position: 20,
+                            },
+                            expr: Literal(
+                                Float(
+                                    LiteralFloat {
+                                        value: "3.5",
+                                        span: Span {
+                                            line: 4,
+                                            column: 9,
+                                            position: 21,
+                                        },
                                     },
-                                },
+                                ),
                             ),
-                        ),
-                        end: Span {
-                            line: 4,
-                            column: 12,
-                            position: 24,
+                            end: Span {
+                                line: 4,
+                                column: 12,
+                                position: 24,
+                            },
                         },
-                    },
+                    ),
                 },
             ),
             ending: Semicolon(

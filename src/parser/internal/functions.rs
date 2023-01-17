@@ -1,6 +1,7 @@
 use crate::lexer::token::TokenKind;
 use crate::parser::ast::functions::AbstractConstructor;
 use crate::parser::ast::functions::AbstractMethod;
+use crate::parser::ast::functions::ArrowFunctionBody;
 use crate::parser::ast::functions::ArrowFunctionExpression;
 use crate::parser::ast::functions::ClosureExpression;
 use crate::parser::ast::functions::ClosureUse;
