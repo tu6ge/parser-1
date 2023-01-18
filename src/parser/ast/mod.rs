@@ -211,6 +211,15 @@ impl Node for GroupUseStatement {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
+pub struct TypeAliasStatement {
+    pub type_keyword: Span, // `type`
+    pub name: SimpleIdentifier,
+    pub equals: Span, // `=`
+    pub r#type: Type,
+    pub semicolon: Span, // `;`
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
 #[serde(tag = "type", content = "value")]
 pub enum Statement {
     FullOpeningTag(FullOpeningTagStatement),
@@ -249,14 +258,7 @@ pub enum Statement {
     Global(GlobalStatement),
     Declare(DeclareStatement),
     Noop(Span),
-    // `type number = int|float;`
-    TypeAlias {
-        type_keyword: Span, // `type`
-        name: SimpleIdentifier,
-        equals: Span, // `=`
-        r#type: Type,
-        semicolon: Span, // `;`
-    },
+    TypeAlias(TypeAliasStatement),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]

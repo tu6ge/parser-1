@@ -9232,31 +9232,7 @@
               ]
             },
             "value": {
-              "type": "object",
-              "required": [
-                "equals",
-                "name",
-                "semicolon",
-                "type",
-                "type_keyword"
-              ],
-              "properties": {
-                "equals": {
-                  "$ref": "#/definitions/Span"
-                },
-                "name": {
-                  "$ref": "#/definitions/SimpleIdentifier"
-                },
-                "semicolon": {
-                  "$ref": "#/definitions/Span"
-                },
-                "type": {
-                  "$ref": "#/definitions/Type"
-                },
-                "type_keyword": {
-                  "$ref": "#/definitions/Span"
-                }
-              }
+              "$ref": "#/definitions/TypeAliasStatement"
             }
           }
         }
@@ -10320,6 +10296,33 @@
           }
         }
       ]
+    },
+    "TypeAliasStatement": {
+      "type": "object",
+      "required": [
+        "equals",
+        "name",
+        "semicolon",
+        "type",
+        "type_keyword"
+      ],
+      "properties": {
+        "equals": {
+          "$ref": "#/definitions/Span"
+        },
+        "name": {
+          "$ref": "#/definitions/SimpleIdentifier"
+        },
+        "semicolon": {
+          "$ref": "#/definitions/Span"
+        },
+        "type": {
+          "$ref": "#/definitions/Type"
+        },
+        "type_keyword": {
+          "$ref": "#/definitions/Span"
+        }
+      }
     },
     "UnbracedNamespace": {
       "type": "object",

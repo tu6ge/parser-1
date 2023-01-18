@@ -6,47 +6,49 @@
             position: 0,
         },
     ),
-    TypeAlias {
-        type_keyword: Span {
-            line: 3,
-            column: 1,
-            position: 7,
-        },
-        name: SimpleIdentifier {
-            span: Span {
+    TypeAlias(
+        TypeAliasStatement {
+            type_keyword: Span {
                 line: 3,
-                column: 6,
-                position: 12,
+                column: 1,
+                position: 7,
             },
-            value: "number",
+            name: SimpleIdentifier {
+                span: Span {
+                    line: 3,
+                    column: 6,
+                    position: 12,
+                },
+                value: "number",
+            },
+            equals: Span {
+                line: 3,
+                column: 13,
+                position: 19,
+            },
+            type: Union(
+                [
+                    Integer(
+                        Span {
+                            line: 3,
+                            column: 15,
+                            position: 21,
+                        },
+                    ),
+                    Float(
+                        Span {
+                            line: 3,
+                            column: 21,
+                            position: 27,
+                        },
+                    ),
+                ],
+            ),
+            semicolon: Span {
+                line: 3,
+                column: 26,
+                position: 32,
+            },
         },
-        equals: Span {
-            line: 3,
-            column: 13,
-            position: 19,
-        },
-        type: Union(
-            [
-                Integer(
-                    Span {
-                        line: 3,
-                        column: 15,
-                        position: 21,
-                    },
-                ),
-                Float(
-                    Span {
-                        line: 3,
-                        column: 21,
-                        position: 27,
-                    },
-                ),
-            ],
-        ),
-        semicolon: Span {
-            line: 3,
-            column: 26,
-            position: 32,
-        },
-    },
+    ),
 ]

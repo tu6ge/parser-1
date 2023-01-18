@@ -43,6 +43,7 @@ use self::ast::InlineHtmlStatement;
 use self::ast::ReturnStatement;
 use self::ast::ShortOpeningTagStatement;
 use self::ast::StaticStatement;
+use self::ast::TypeAliasStatement;
 use self::internal::data_type::data_type;
 use self::internal::identifiers::identifier;
 use self::internal::precedences::Precedence;
@@ -130,13 +131,13 @@ fn top_level_statement(state: &mut State) -> ParseResult<Statement> {
             let r#type = data_type(state)?;
             let semicolon = skip_semicolon(state)?;
 
-            Statement::TypeAlias {
+            Statement::TypeAlias(TypeAliasStatement {
                 type_keyword,
                 name,
                 equals,
                 r#type,
                 semicolon,
-            }
+            })
         }
         _ => statement(state)?,
     };
