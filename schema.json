@@ -7431,10 +7431,17 @@
         {
           "type": "object",
           "required": [
-            "block"
+            "type",
+            "value"
           ],
           "properties": {
-            "block": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "block"
+              ]
+            },
+            "value": {
               "type": "object",
               "required": [
                 "left_brace",
@@ -7456,20 +7463,25 @@
                 }
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         {
           "type": "object",
           "required": [
-            "expression"
+            "type",
+            "value"
           ],
           "properties": {
-            "expression": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "expression"
+              ]
+            },
+            "value": {
               "$ref": "#/definitions/Expression"
             }
-          },
-          "additionalProperties": false
+          }
         }
       ]
     },
