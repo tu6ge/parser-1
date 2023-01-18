@@ -147,7 +147,7 @@ fn match_arm_body(state: &mut State) -> ParseResult<MatchArmBody> {
                 right_brace,
             })
         }
-        _ => Ok(MatchArmBody::Expression(expressions::create(state)?)),
+        _ => Ok(MatchArmBody::Expression { expression: expressions::create(state)? }),
     }
 }
 

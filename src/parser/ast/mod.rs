@@ -1430,14 +1430,16 @@ pub enum MatchArmBody {
         right_brace: Span,
     },
     // *expression*
-    Expression(Expression),
+    Expression {
+        expression: Expression,
+    },
 }
 
 impl Node for MatchArmBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
         match self {
             MatchArmBody::Block { statements, .. } => vec![statements],
-            MatchArmBody::Expression(expression) => vec![expression],
+            MatchArmBody::Expression { expression } => vec![expression],
         }
     }
 }

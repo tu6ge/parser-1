@@ -7479,7 +7479,15 @@
               ]
             },
             "value": {
-              "$ref": "#/definitions/Expression"
+              "type": "object",
+              "required": [
+                "expression"
+              ],
+              "properties": {
+                "expression": {
+                  "$ref": "#/definitions/Expression"
+                }
+              }
             }
           }
         }
