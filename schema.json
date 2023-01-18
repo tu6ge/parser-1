@@ -999,6 +999,28 @@
         }
       ]
     },
+    "ArrowFunctionBlockBody": {
+      "type": "object",
+      "required": [
+        "left_brace",
+        "right_brace",
+        "statements"
+      ],
+      "properties": {
+        "left_brace": {
+          "$ref": "#/definitions/Span"
+        },
+        "right_brace": {
+          "$ref": "#/definitions/Span"
+        },
+        "statements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Statement"
+          }
+        }
+      }
+    },
     "ArrowFunctionBody": {
       "oneOf": [
         {
@@ -1008,26 +1030,7 @@
           ],
           "properties": {
             "block": {
-              "type": "object",
-              "required": [
-                "left_brace",
-                "right_brace",
-                "statements"
-              ],
-              "properties": {
-                "left_brace": {
-                  "$ref": "#/definitions/Span"
-                },
-                "right_brace": {
-                  "$ref": "#/definitions/Span"
-                },
-                "statements": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Statement"
-                  }
-                }
-              }
+              "$ref": "#/definitions/ArrowFunctionBlockBody"
             }
           },
           "additionalProperties": false
@@ -1039,19 +1042,7 @@
           ],
           "properties": {
             "expression": {
-              "type": "object",
-              "required": [
-                "double_arrow",
-                "expression"
-              ],
-              "properties": {
-                "double_arrow": {
-                  "$ref": "#/definitions/Span"
-                },
-                "expression": {
-                  "$ref": "#/definitions/Expression"
-                }
-              }
+              "$ref": "#/definitions/ArrowFunctionExpressionBody"
             }
           },
           "additionalProperties": false
@@ -1115,6 +1106,21 @@
               "type": "null"
             }
           ]
+        }
+      }
+    },
+    "ArrowFunctionExpressionBody": {
+      "type": "object",
+      "required": [
+        "double_arrow",
+        "expression"
+      ],
+      "properties": {
+        "double_arrow": {
+          "$ref": "#/definitions/Span"
+        },
+        "expression": {
+          "$ref": "#/definitions/Expression"
         }
       }
     },

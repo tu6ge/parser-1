@@ -200,26 +200,46 @@ pub struct ArrowFunctionExpression {
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
 #[serde(rename_all = "snake_case")]
+pub struct ArrowFunctionBlockBody {
+    pub left_brace: Span,
+    pub statements: Vec<Statement>,
+    pub right_brace: Span,
+}
+
+impl Node for ArrowFunctionBlockBody {
+    fn children(&mut self) -> Vec<&mut dyn Node> {
+        self.statements
+            .iter_mut()
+            .map(|x| x as &mut dyn Node)
+            .collect()
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub struct ArrowFunctionExpressionBody {
+    pub double_arrow: Span,
+    pub expression: Box<Expression>,
+}
+
+impl Node for ArrowFunctionExpressionBody {
+    fn children(&mut self) -> Vec<&mut dyn Node> {
+        vec![self.expression.as_mut()]
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub enum ArrowFunctionBody {
-    Block {
-        left_brace: Span,
-        statements: Vec<Statement>,
-        right_brace: Span,
-    },
-    Expression {
-        double_arrow: Span,
-        expression: Box<Expression>,
-    },
+    Block(ArrowFunctionBlockBody),
+    Expression(ArrowFunctionExpressionBody),
 }
 
 impl Node for ArrowFunctionBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
         match self {
-            ArrowFunctionBody::Block { statements, .. } => statements
-                .iter_mut()
-                .map(|s| s as &mut dyn Node)
-                .collect::<Vec<&mut dyn Node>>(),
-            ArrowFunctionBody::Expression { expression, .. } => vec![expression.as_mut()],
+            ArrowFunctionBody::Block(body) => vec![body],
+            ArrowFunctionBody::Expression(body) => vec![body],
         }
     }
 }

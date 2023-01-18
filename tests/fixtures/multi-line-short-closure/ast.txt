@@ -171,45 +171,138 @@
                                             },
                                         },
                                         return_type: None,
-                                        body: Block {
-                                            left_brace: Span {
-                                                line: 4,
-                                                column: 26,
-                                                position: 82,
-                                            },
-                                            statements: [
-                                                Expression(
-                                                    ExpressionStatement {
-                                                        expression: AssignmentOperation(
-                                                            Assign {
-                                                                left: Variable(
-                                                                    SimpleVariable(
-                                                                        SimpleVariable {
-                                                                            span: Span {
-                                                                                line: 5,
-                                                                                column: 9,
-                                                                                position: 92,
+                                        body: Block(
+                                            ArrowFunctionBlockBody {
+                                                left_brace: Span {
+                                                    line: 4,
+                                                    column: 26,
+                                                    position: 82,
+                                                },
+                                                statements: [
+                                                    Expression(
+                                                        ExpressionStatement {
+                                                            expression: AssignmentOperation(
+                                                                Assign {
+                                                                    left: Variable(
+                                                                        SimpleVariable(
+                                                                            SimpleVariable {
+                                                                                span: Span {
+                                                                                    line: 5,
+                                                                                    column: 9,
+                                                                                    position: 92,
+                                                                                },
+                                                                                name: "$args",
                                                                             },
-                                                                            name: "$args",
+                                                                        ),
+                                                                    ),
+                                                                    equals: Span {
+                                                                        line: 5,
+                                                                        column: 15,
+                                                                        position: 98,
+                                                                    },
+                                                                    right: FunctionCall(
+                                                                        FunctionCallExpression {
+                                                                            target: Identifier(
+                                                                                SimpleIdentifier(
+                                                                                    SimpleIdentifier {
+                                                                                        span: Span {
+                                                                                            line: 5,
+                                                                                            column: 17,
+                                                                                            position: 100,
+                                                                                        },
+                                                                                        value: "array_merge",
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            arguments: ArgumentList {
+                                                                                comments: CommentGroup {
+                                                                                    comments: [],
+                                                                                },
+                                                                                left_parenthesis: Span {
+                                                                                    line: 5,
+                                                                                    column: 28,
+                                                                                    position: 111,
+                                                                                },
+                                                                                arguments: [
+                                                                                    Positional(
+                                                                                        PositionalArgument {
+                                                                                            comments: CommentGroup {
+                                                                                                comments: [],
+                                                                                            },
+                                                                                            ellipsis: None,
+                                                                                            value: Variable(
+                                                                                                SimpleVariable(
+                                                                                                    SimpleVariable {
+                                                                                                        span: Span {
+                                                                                                            line: 5,
+                                                                                                            column: 29,
+                                                                                                            position: 112,
+                                                                                                        },
+                                                                                                        name: "$initialArguments",
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                    Positional(
+                                                                                        PositionalArgument {
+                                                                                            comments: CommentGroup {
+                                                                                                comments: [],
+                                                                                            },
+                                                                                            ellipsis: None,
+                                                                                            value: Variable(
+                                                                                                SimpleVariable(
+                                                                                                    SimpleVariable {
+                                                                                                        span: Span {
+                                                                                                            line: 5,
+                                                                                                            column: 48,
+                                                                                                            position: 131,
+                                                                                                        },
+                                                                                                        name: "$args",
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                ],
+                                                                                right_parenthesis: Span {
+                                                                                    line: 5,
+                                                                                    column: 53,
+                                                                                    position: 136,
+                                                                                },
+                                                                            },
                                                                         },
                                                                     ),
-                                                                ),
-                                                                equals: Span {
-                                                                    line: 5,
-                                                                    column: 15,
-                                                                    position: 98,
                                                                 },
-                                                                right: FunctionCall(
+                                                            ),
+                                                            ending: Semicolon(
+                                                                Span {
+                                                                    line: 5,
+                                                                    column: 54,
+                                                                    position: 137,
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    Return(
+                                                        ReturnStatement {
+                                                            return: Span {
+                                                                line: 6,
+                                                                column: 9,
+                                                                position: 147,
+                                                            },
+                                                            value: Some(
+                                                                FunctionCall(
                                                                     FunctionCallExpression {
                                                                         target: Identifier(
                                                                             SimpleIdentifier(
                                                                                 SimpleIdentifier {
                                                                                     span: Span {
-                                                                                        line: 5,
-                                                                                        column: 17,
-                                                                                        position: 100,
+                                                                                        line: 6,
+                                                                                        column: 16,
+                                                                                        position: 154,
                                                                                     },
-                                                                                    value: "array_merge",
+                                                                                    value: "call_user_func_array",
                                                                                 },
                                                                             ),
                                                                         ),
@@ -218,9 +311,9 @@
                                                                                 comments: [],
                                                                             },
                                                                             left_parenthesis: Span {
-                                                                                line: 5,
-                                                                                column: 28,
-                                                                                position: 111,
+                                                                                line: 6,
+                                                                                column: 36,
+                                                                                position: 174,
                                                                             },
                                                                             arguments: [
                                                                                 Positional(
@@ -233,11 +326,11 @@
                                                                                             SimpleVariable(
                                                                                                 SimpleVariable {
                                                                                                     span: Span {
-                                                                                                        line: 5,
-                                                                                                        column: 29,
-                                                                                                        position: 112,
+                                                                                                        line: 6,
+                                                                                                        column: 37,
+                                                                                                        position: 175,
                                                                                                     },
-                                                                                                    name: "$initialArguments",
+                                                                                                    name: "$callable",
                                                                                                 },
                                                                                             ),
                                                                                         ),
@@ -253,9 +346,9 @@
                                                                                             SimpleVariable(
                                                                                                 SimpleVariable {
                                                                                                     span: Span {
-                                                                                                        line: 5,
+                                                                                                        line: 6,
                                                                                                         column: 48,
-                                                                                                        position: 131,
+                                                                                                        position: 186,
                                                                                                     },
                                                                                                     name: "$args",
                                                                                                 },
@@ -265,122 +358,31 @@
                                                                                 ),
                                                                             ],
                                                                             right_parenthesis: Span {
-                                                                                line: 5,
+                                                                                line: 6,
                                                                                 column: 53,
-                                                                                position: 136,
+                                                                                position: 191,
                                                                             },
                                                                         },
                                                                     },
                                                                 ),
-                                                            },
-                                                        ),
-                                                        ending: Semicolon(
-                                                            Span {
-                                                                line: 5,
-                                                                column: 54,
-                                                                position: 137,
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                                Return(
-                                                    ReturnStatement {
-                                                        return: Span {
-                                                            line: 6,
-                                                            column: 9,
-                                                            position: 147,
-                                                        },
-                                                        value: Some(
-                                                            FunctionCall(
-                                                                FunctionCallExpression {
-                                                                    target: Identifier(
-                                                                        SimpleIdentifier(
-                                                                            SimpleIdentifier {
-                                                                                span: Span {
-                                                                                    line: 6,
-                                                                                    column: 16,
-                                                                                    position: 154,
-                                                                                },
-                                                                                value: "call_user_func_array",
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    arguments: ArgumentList {
-                                                                        comments: CommentGroup {
-                                                                            comments: [],
-                                                                        },
-                                                                        left_parenthesis: Span {
-                                                                            line: 6,
-                                                                            column: 36,
-                                                                            position: 174,
-                                                                        },
-                                                                        arguments: [
-                                                                            Positional(
-                                                                                PositionalArgument {
-                                                                                    comments: CommentGroup {
-                                                                                        comments: [],
-                                                                                    },
-                                                                                    ellipsis: None,
-                                                                                    value: Variable(
-                                                                                        SimpleVariable(
-                                                                                            SimpleVariable {
-                                                                                                span: Span {
-                                                                                                    line: 6,
-                                                                                                    column: 37,
-                                                                                                    position: 175,
-                                                                                                },
-                                                                                                name: "$callable",
-                                                                                            },
-                                                                                        ),
-                                                                                    ),
-                                                                                },
-                                                                            ),
-                                                                            Positional(
-                                                                                PositionalArgument {
-                                                                                    comments: CommentGroup {
-                                                                                        comments: [],
-                                                                                    },
-                                                                                    ellipsis: None,
-                                                                                    value: Variable(
-                                                                                        SimpleVariable(
-                                                                                            SimpleVariable {
-                                                                                                span: Span {
-                                                                                                    line: 6,
-                                                                                                    column: 48,
-                                                                                                    position: 186,
-                                                                                                },
-                                                                                                name: "$args",
-                                                                                            },
-                                                                                        ),
-                                                                                    ),
-                                                                                },
-                                                                            ),
-                                                                        ],
-                                                                        right_parenthesis: Span {
-                                                                            line: 6,
-                                                                            column: 53,
-                                                                            position: 191,
-                                                                        },
-                                                                    },
+                                                            ),
+                                                            ending: Semicolon(
+                                                                Span {
+                                                                    line: 6,
+                                                                    column: 54,
+                                                                    position: 192,
                                                                 },
                                                             ),
-                                                        ),
-                                                        ending: Semicolon(
-                                                            Span {
-                                                                line: 6,
-                                                                column: 54,
-                                                                position: 192,
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                            ],
-                                            right_brace: Span {
-                                                line: 7,
-                                                column: 5,
-                                                position: 198,
+                                                        },
+                                                    ),
+                                                ],
+                                                right_brace: Span {
+                                                    line: 7,
+                                                    column: 5,
+                                                    position: 198,
+                                                },
                                             },
-                                        },
+                                        ),
                                     },
                                 ),
                             ),
@@ -437,14 +439,16 @@
                         },
                     },
                     return_type: None,
-                    body: Expression {
-                        double_arrow: Span {
-                            line: 10,
-                            column: 7,
-                            position: 210,
+                    body: Expression(
+                        ArrowFunctionExpressionBody {
+                            double_arrow: Span {
+                                line: 10,
+                                column: 7,
+                                position: 210,
+                            },
+                            expression: Null,
                         },
-                        expression: Null,
-                    },
+                    ),
                 },
             ),
             ending: Semicolon(

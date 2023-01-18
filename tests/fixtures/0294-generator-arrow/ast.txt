@@ -87,19 +87,21 @@
                                                     ),
                                                 },
                                             ),
-                                            body: Expression {
-                                                double_arrow: Span {
-                                                    line: 3,
-                                                    column: 25,
-                                                    position: 31,
-                                                },
-                                                expression: Yield(
-                                                    YieldExpression {
-                                                        key: None,
-                                                        value: None,
+                                            body: Expression(
+                                                ArrowFunctionExpressionBody {
+                                                    double_arrow: Span {
+                                                        line: 3,
+                                                        column: 25,
+                                                        position: 31,
                                                     },
-                                                ),
-                                            },
+                                                    expression: Yield(
+                                                        YieldExpression {
+                                                            key: None,
+                                                            value: None,
+                                                        },
+                                                    ),
+                                                },
+                                            ),
                                         },
                                     ),
                                     end: Span {

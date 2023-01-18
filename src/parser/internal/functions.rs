@@ -3,6 +3,8 @@ use crate::parser::ast::functions::AbstractConstructor;
 use crate::parser::ast::functions::AbstractMethod;
 use crate::parser::ast::functions::ArrowFunctionBody;
 use crate::parser::ast::functions::ArrowFunctionExpression;
+use crate::parser::ast::functions::ArrowFunctionBlockBody;
+use crate::parser::ast::functions::ArrowFunctionExpressionBody;
 use crate::parser::ast::functions::ClosureExpression;
 use crate::parser::ast::functions::ClosureUse;
 use crate::parser::ast::functions::ClosureUseVariable;
@@ -183,19 +185,16 @@ fn arrow_function_body(state: &mut State) -> ParseResult<ArrowFunctionBody> {
         let statements = blocks::multiple_statements_until(state, &TokenKind::RightBrace)?;
         let right_brace = utils::skip_right_brace(state)?;
 
-        Ok(ArrowFunctionBody::Block {
+        Ok(ArrowFunctionBody::Block(ArrowFunctionBlockBody {
             left_brace,
             statements,
             right_brace,
-        })
+        }))
     } else {
         let double_arrow = utils::skip(state, TokenKind::DoubleArrow)?;
         let expression = Box::new(expressions::create(state)?);
 
-        Ok(ArrowFunctionBody::Expression {
-            double_arrow,
-            expression,
-        })
+        Ok(ArrowFunctionBody::Expression(ArrowFunctionExpressionBody { double_arrow, expression }))
     }
 }
 

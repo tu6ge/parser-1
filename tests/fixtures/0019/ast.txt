@@ -605,14 +605,16 @@
                                                     },
                                                 },
                                                 return_type: None,
-                                                body: Expression {
-                                                    double_arrow: Span {
-                                                        line: 12,
-                                                        column: 16,
-                                                        position: 202,
+                                                body: Expression(
+                                                    ArrowFunctionExpressionBody {
+                                                        double_arrow: Span {
+                                                            line: 12,
+                                                            column: 16,
+                                                            position: 202,
+                                                        },
+                                                        expression: Null,
                                                     },
-                                                    expression: Null,
-                                                },
+                                                ),
                                             },
                                         ),
                                     },
@@ -705,14 +707,16 @@
                                                     },
                                                 },
                                                 return_type: None,
-                                                body: Expression {
-                                                    double_arrow: Span {
-                                                        line: 13,
-                                                        column: 19,
-                                                        position: 229,
+                                                body: Expression(
+                                                    ArrowFunctionExpressionBody {
+                                                        double_arrow: Span {
+                                                            line: 13,
+                                                            column: 19,
+                                                            position: 229,
+                                                        },
+                                                        expression: Null,
                                                     },
-                                                    expression: Null,
-                                                },
+                                                ),
                                             },
                                         ),
                                     },
@@ -786,14 +790,16 @@
                                                     },
                                                 },
                                                 return_type: None,
-                                                body: Expression {
-                                                    double_arrow: Span {
-                                                        line: 14,
-                                                        column: 17,
-                                                        position: 254,
+                                                body: Expression(
+                                                    ArrowFunctionExpressionBody {
+                                                        double_arrow: Span {
+                                                            line: 14,
+                                                            column: 17,
+                                                            position: 254,
+                                                        },
+                                                        expression: Null,
                                                     },
-                                                    expression: Null,
-                                                },
+                                                ),
                                             },
                                         ),
                                     },
@@ -892,25 +898,27 @@
                                                     },
                                                 },
                                                 return_type: None,
-                                                body: Expression {
-                                                    double_arrow: Span {
-                                                        line: 15,
-                                                        column: 20,
-                                                        position: 282,
-                                                    },
-                                                    expression: Variable(
-                                                        SimpleVariable(
-                                                            SimpleVariable {
-                                                                span: Span {
-                                                                    line: 15,
-                                                                    column: 23,
-                                                                    position: 285,
+                                                body: Expression(
+                                                    ArrowFunctionExpressionBody {
+                                                        double_arrow: Span {
+                                                            line: 15,
+                                                            column: 20,
+                                                            position: 282,
+                                                        },
+                                                        expression: Variable(
+                                                            SimpleVariable(
+                                                                SimpleVariable {
+                                                                    span: Span {
+                                                                        line: 15,
+                                                                        column: 23,
+                                                                        position: 285,
+                                                                    },
+                                                                    name: "$b",
                                                                 },
-                                                                name: "$b",
-                                                            },
+                                                            ),
                                                         ),
-                                                    ),
-                                                },
+                                                    },
+                                                ),
                                             },
                                         ),
                                     },
@@ -1472,14 +1480,16 @@
                                                     },
                                                 },
                                                 return_type: None,
-                                                body: Expression {
-                                                    double_arrow: Span {
-                                                        line: 23,
-                                                        column: 23,
-                                                        position: 478,
+                                                body: Expression(
+                                                    ArrowFunctionExpressionBody {
+                                                        double_arrow: Span {
+                                                            line: 23,
+                                                            column: 23,
+                                                            position: 478,
+                                                        },
+                                                        expression: Null,
                                                     },
-                                                    expression: Null,
-                                                },
+                                                ),
                                             },
                                         ),
                                     },
@@ -1578,14 +1588,16 @@
                                                     },
                                                 },
                                                 return_type: None,
-                                                body: Expression {
-                                                    double_arrow: Span {
-                                                        line: 24,
-                                                        column: 26,
-                                                        position: 512,
+                                                body: Expression(
+                                                    ArrowFunctionExpressionBody {
+                                                        double_arrow: Span {
+                                                            line: 24,
+                                                            column: 26,
+                                                            position: 512,
+                                                        },
+                                                        expression: Null,
                                                     },
-                                                    expression: Null,
-                                                },
+                                                ),
                                             },
                                         ),
                                     },
@@ -1665,14 +1677,16 @@
                                                     },
                                                 },
                                                 return_type: None,
-                                                body: Expression {
-                                                    double_arrow: Span {
-                                                        line: 25,
-                                                        column: 24,
-                                                        position: 544,
+                                                body: Expression(
+                                                    ArrowFunctionExpressionBody {
+                                                        double_arrow: Span {
+                                                            line: 25,
+                                                            column: 24,
+                                                            position: 544,
+                                                        },
+                                                        expression: Null,
                                                     },
-                                                    expression: Null,
-                                                },
+                                                ),
                                             },
                                         ),
                                     },
@@ -1777,25 +1791,27 @@
                                                     },
                                                 },
                                                 return_type: None,
-                                                body: Expression {
-                                                    double_arrow: Span {
-                                                        line: 26,
-                                                        column: 27,
-                                                        position: 579,
-                                                    },
-                                                    expression: Variable(
-                                                        SimpleVariable(
-                                                            SimpleVariable {
-                                                                span: Span {
-                                                                    line: 26,
-                                                                    column: 30,
-                                                                    position: 582,
+                                                body: Expression(
+                                                    ArrowFunctionExpressionBody {
+                                                        double_arrow: Span {
+                                                            line: 26,
+                                                            column: 27,
+                                                            position: 579,
+                                                        },
+                                                        expression: Variable(
+                                                            SimpleVariable(
+                                                                SimpleVariable {
+                                                                    span: Span {
+                                                                        line: 26,
+                                                                        column: 30,
+                                                                        position: 582,
+                                                                    },
+                                                                    name: "$b",
                                                                 },
-                                                                name: "$b",
-                                                            },
+                                                            ),
                                                         ),
-                                                    ),
-                                                },
+                                                    },
+                                                ),
                                             },
                                         ),
                                     },
