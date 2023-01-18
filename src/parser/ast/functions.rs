@@ -229,7 +229,7 @@ impl Node for ArrowFunctionExpressionBody {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[serde(rename_all = "snake_case", tag = "type", content = "value")]
 pub enum ArrowFunctionBody {
     Block(ArrowFunctionBlockBody),
     Expression(ArrowFunctionExpressionBody),

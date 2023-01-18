@@ -1026,26 +1026,38 @@
         {
           "type": "object",
           "required": [
-            "block"
+            "type",
+            "value"
           ],
           "properties": {
-            "block": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "block"
+              ]
+            },
+            "value": {
               "$ref": "#/definitions/ArrowFunctionBlockBody"
             }
-          },
-          "additionalProperties": false
+          }
         },
         {
           "type": "object",
           "required": [
-            "expression"
+            "type",
+            "value"
           ],
           "properties": {
-            "expression": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "expression"
+              ]
+            },
+            "value": {
               "$ref": "#/definitions/ArrowFunctionExpressionBody"
             }
-          },
-          "additionalProperties": false
+          }
         }
       ]
     },
