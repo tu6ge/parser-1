@@ -56,8 +56,8 @@
                                 column: 13,
                                 position: 127,
                             },
-                            body: Expression(
-                                Literal(
+                            body: Expression {
+                                expression: Literal(
                                     Integer(
                                         LiteralInteger {
                                             value: "124",
@@ -69,7 +69,7 @@
                                         },
                                     ),
                                 ),
-                            ),
+                            },
                         },
                     ),
                     arms: [
@@ -93,8 +93,8 @@
                                 column: 7,
                                 position: 27,
                             },
-                            body: Expression(
-                                Literal(
+                            body: Expression {
+                                expression: Literal(
                                     Integer(
                                         LiteralInteger {
                                             value: "2",
@@ -106,7 +106,7 @@
                                         },
                                     ),
                                 ),
-                            ),
+                            },
                         },
                         MatchArm {
                             conditions: [
@@ -128,8 +128,8 @@
                                 column: 8,
                                 position: 40,
                             },
-                            body: Expression(
-                                Literal(
+                            body: Expression {
+                                expression: Literal(
                                     Integer(
                                         LiteralInteger {
                                             value: "4",
@@ -141,7 +141,7 @@
                                         },
                                     ),
                                 ),
-                            ),
+                            },
                         },
                         MatchArm {
                             conditions: [
@@ -175,8 +175,8 @@
                                 column: 9,
                                 position: 54,
                             },
-                            body: Expression(
-                                Literal(
+                            body: Expression {
+                                expression: Literal(
                                     Integer(
                                         LiteralInteger {
                                             value: "4",
@@ -188,7 +188,7 @@
                                         },
                                     ),
                                 ),
-                            ),
+                            },
                         },
                         MatchArm {
                             conditions: [
@@ -222,8 +222,8 @@
                                 column: 13,
                                 position: 72,
                             },
-                            body: Expression(
-                                Literal(
+                            body: Expression {
+                                expression: Literal(
                                     Integer(
                                         LiteralInteger {
                                             value: "4",
@@ -235,7 +235,7 @@
                                         },
                                     ),
                                 ),
-                            ),
+                            },
                         },
                         MatchArm {
                             conditions: [
@@ -257,8 +257,8 @@
                                 column: 7,
                                 position: 84,
                             },
-                            body: Expression(
-                                Literal(
+                            body: Expression {
+                                expression: Literal(
                                     Integer(
                                         LiteralInteger {
                                             value: "43",
@@ -270,7 +270,7 @@
                                         },
                                     ),
                                 ),
-                            ),
+                            },
                         },
                     ],
                     right_brace: Span {

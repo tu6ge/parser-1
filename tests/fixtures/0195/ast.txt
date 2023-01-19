@@ -165,9 +165,9 @@
                                         column: 14,
                                         position: 48,
                                     },
-                                    body: Expression(
-                                        Null,
-                                    ),
+                                    body: Expression {
+                                        expression: Null,
+                                    },
                                 },
                             ],
                             right_brace: Span {
