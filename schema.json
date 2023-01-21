@@ -1033,7 +1033,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "block"
+                "Block"
               ]
             },
             "value": {
@@ -1051,7 +1051,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "expression"
+                "Expression"
               ]
             },
             "value": {
@@ -4392,7 +4392,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "eval"
+                "Eval"
               ]
             },
             "value": {
@@ -4410,7 +4410,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "empty"
+                "Empty"
               ]
             },
             "value": {
@@ -4428,7 +4428,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "die"
+                "Die"
               ]
             },
             "value": {
@@ -4446,7 +4446,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "exit"
+                "Exit"
               ]
             },
             "value": {
@@ -4464,7 +4464,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "isset"
+                "Isset"
               ]
             },
             "value": {
@@ -4482,7 +4482,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "unset"
+                "Unset"
               ]
             },
             "value": {
@@ -4500,7 +4500,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "print"
+                "Print"
               ]
             },
             "value": {
@@ -4518,7 +4518,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "literal"
+                "Literal"
               ]
             },
             "value": {
@@ -4536,7 +4536,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "arithmetic_operation"
+                "ArithmeticOperation"
               ]
             },
             "value": {
@@ -4554,7 +4554,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "assignment_operation"
+                "AssignmentOperation"
               ]
             },
             "value": {
@@ -4572,7 +4572,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "bitwise_operation"
+                "BitwiseOperation"
               ]
             },
             "value": {
@@ -4590,7 +4590,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "comparison_operation"
+                "ComparisonOperation"
               ]
             },
             "value": {
@@ -4608,7 +4608,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "logical_operation"
+                "LogicalOperation"
               ]
             },
             "value": {
@@ -4626,7 +4626,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "range_operation"
+                "RangeOperation"
               ]
             },
             "value": {
@@ -4644,7 +4644,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "concat"
+                "Concat"
               ]
             },
             "value": {
@@ -4662,7 +4662,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "instanceof"
+                "Instanceof"
               ]
             },
             "value": {
@@ -4680,7 +4680,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "reference"
+                "Reference"
               ]
             },
             "value": {
@@ -4698,7 +4698,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "parenthesized"
+                "Parenthesized"
               ]
             },
             "value": {
@@ -4716,7 +4716,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "error_suppress"
+                "ErrorSuppress"
               ]
             },
             "value": {
@@ -4734,7 +4734,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "identifier"
+                "Identifier"
               ]
             },
             "value": {
@@ -4752,7 +4752,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "variable"
+                "Variable"
               ]
             },
             "value": {
@@ -4770,7 +4770,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "include"
+                "Include"
               ]
             },
             "value": {
@@ -4788,7 +4788,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "include_once"
+                "IncludeOnce"
               ]
             },
             "value": {
@@ -4806,7 +4806,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "require"
+                "Require"
               ]
             },
             "value": {
@@ -4824,7 +4824,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "require_once"
+                "RequireOnce"
               ]
             },
             "value": {
@@ -4842,7 +4842,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "function_call"
+                "FunctionCall"
               ]
             },
             "value": {
@@ -4860,7 +4860,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "function_closure_creation"
+                "FunctionClosureCreation"
               ]
             },
             "value": {
@@ -4878,7 +4878,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "method_call"
+                "MethodCall"
               ]
             },
             "value": {
@@ -4896,7 +4896,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "method_closure_creation"
+                "MethodClosureCreation"
               ]
             },
             "value": {
@@ -4914,7 +4914,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "nullsafe_method_call"
+                "NullsafeMethodCall"
               ]
             },
             "value": {
@@ -4932,7 +4932,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "static_method_call"
+                "StaticMethodCall"
               ]
             },
             "value": {
@@ -4950,7 +4950,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "static_variable_method_call"
+                "StaticVariableMethodCall"
               ]
             },
             "value": {
@@ -4968,7 +4968,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "static_method_closure_creation"
+                "StaticMethodClosureCreation"
               ]
             },
             "value": {
@@ -4986,7 +4986,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "static_variable_method_closure_creation"
+                "StaticVariableMethodClosureCreation"
               ]
             },
             "value": {
@@ -5004,7 +5004,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "property_fetch"
+                "PropertyFetch"
               ]
             },
             "value": {
@@ -5022,7 +5022,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "nullsafe_property_fetch"
+                "NullsafePropertyFetch"
               ]
             },
             "value": {
@@ -5040,7 +5040,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "static_property_fetch"
+                "StaticPropertyFetch"
               ]
             },
             "value": {
@@ -5058,7 +5058,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "constant_fetch"
+                "ConstantFetch"
               ]
             },
             "value": {
@@ -5075,7 +5075,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "static"
+                "Static"
               ]
             }
           }
@@ -5089,7 +5089,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "self_"
+                "Self_"
               ]
             }
           }
@@ -5103,7 +5103,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "parent"
+                "Parent"
               ]
             }
           }
@@ -5118,7 +5118,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "short_array"
+                "ShortArray"
               ]
             },
             "value": {
@@ -5136,7 +5136,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "array"
+                "Array"
               ]
             },
             "value": {
@@ -5154,7 +5154,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "list"
+                "List"
               ]
             },
             "value": {
@@ -5172,7 +5172,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "closure"
+                "Closure"
               ]
             },
             "value": {
@@ -5190,7 +5190,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "arrow_function"
+                "ArrowFunction"
               ]
             },
             "value": {
@@ -5208,7 +5208,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "new"
+                "New"
               ]
             },
             "value": {
@@ -5226,7 +5226,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "interpolated_string"
+                "InterpolatedString"
               ]
             },
             "value": {
@@ -5244,7 +5244,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "heredoc"
+                "Heredoc"
               ]
             },
             "value": {
@@ -5262,7 +5262,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "nowdoc"
+                "Nowdoc"
               ]
             },
             "value": {
@@ -5280,7 +5280,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "shell_exec"
+                "ShellExec"
               ]
             },
             "value": {
@@ -5298,7 +5298,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "anonymous_class"
+                "AnonymousClass"
               ]
             },
             "value": {
@@ -5316,7 +5316,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "bool"
+                "Bool"
               ]
             },
             "value": {
@@ -5334,7 +5334,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "array_index"
+                "ArrayIndex"
               ]
             },
             "value": {
@@ -5351,7 +5351,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "null"
+                "Null"
               ]
             }
           }
@@ -5366,7 +5366,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "magic_constant"
+                "MagicConstant"
               ]
             },
             "value": {
@@ -5384,7 +5384,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "short_ternary"
+                "ShortTernary"
               ]
             },
             "value": {
@@ -5402,7 +5402,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "ternary"
+                "Ternary"
               ]
             },
             "value": {
@@ -5420,7 +5420,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "coalesce"
+                "Coalesce"
               ]
             },
             "value": {
@@ -5438,7 +5438,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "clone"
+                "Clone"
               ]
             },
             "value": {
@@ -5456,7 +5456,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "match"
+                "Match"
               ]
             },
             "value": {
@@ -5474,7 +5474,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "short_match"
+                "ShortMatch"
               ]
             },
             "value": {
@@ -5492,7 +5492,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "throw"
+                "Throw"
               ]
             },
             "value": {
@@ -5510,7 +5510,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "yield"
+                "Yield"
               ]
             },
             "value": {
@@ -5528,7 +5528,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "yield_from"
+                "YieldFrom"
               ]
             },
             "value": {
@@ -5546,7 +5546,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "cast"
+                "Cast"
               ]
             },
             "value": {
@@ -5563,7 +5563,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "noop"
+                "Noop"
               ]
             }
           }
@@ -7430,7 +7430,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "block"
+                "Block"
               ]
             },
             "value": {
@@ -7467,7 +7467,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "expression"
+                "Expression"
               ]
             },
             "value": {
@@ -8254,7 +8254,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "exclusive"
+                "Exclusive"
               ]
             },
             "value": {
@@ -8288,7 +8288,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "inclusive"
+                "Inclusive"
               ]
             },
             "value": {
@@ -8322,7 +8322,7 @@
             "type": {
               "type": "string",
               "enum": [
-                "endless"
+                "Endless"
               ]
             },
             "value": {

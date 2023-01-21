@@ -1083,7 +1083,7 @@ impl Node for ShortMatchExpression {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
-#[serde(rename_all = "snake_case", tag = "type", content = "value")]
+#[serde(tag = "type", content = "value")]
 pub enum Expression {
     // eval("$a = 1")
     Eval(EvalExpression),
@@ -1421,7 +1421,7 @@ pub struct MatchArm {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
-#[serde(rename_all = "snake_case", tag = "type", content = "value")]
+#[serde(tag = "type", content = "value")]
 pub enum MatchArmBody {
     // `{` *statements* `}`
     Block {

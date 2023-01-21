@@ -496,7 +496,7 @@ impl Node for LogicalOperationExpression {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
-#[serde(rename_all = "snake_case", tag = "type", content = "value")]
+#[serde(tag = "type", content = "value")]
 pub enum RangeOperationExpression {
     Exclusive {
         lower_bound: Box<Expression>,

@@ -199,7 +199,6 @@ pub struct ArrowFunctionExpression {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
-#[serde(rename_all = "snake_case")]
 pub struct ArrowFunctionBlockBody {
     pub left_brace: Span,
     pub statements: Vec<Statement>,
@@ -216,7 +215,6 @@ impl Node for ArrowFunctionBlockBody {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
-#[serde(rename_all = "snake_case")]
 pub struct ArrowFunctionExpressionBody {
     pub double_arrow: Span,
     pub expression: Box<Expression>,
@@ -229,7 +227,7 @@ impl Node for ArrowFunctionExpressionBody {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Deserialize, Serialize, JsonSchema)]
-#[serde(rename_all = "snake_case", tag = "type", content = "value")]
+#[serde(tag = "type", content = "value")]
 pub enum ArrowFunctionBody {
     Block(ArrowFunctionBlockBody),
     Expression(ArrowFunctionExpressionBody),
