@@ -539,16 +539,16 @@ fn for_precedence(state: &mut State, precedence: Precedence) -> ParseResult<Expr
                             instanceof: span,
                             right,
                         }),
-                        TokenKind::ExclusiveRange => Expression::RangeOperation(RangeOperationExpression::Exclusive {
-                            lower_bound: left,
-                            double_dot: span,
-                            upper_bound: right,
-                        }),
-                        TokenKind::InclusiveRange => Expression::RangeOperation(RangeOperationExpression::Inclusive {
-                            lower_bound: left,
-                            double_dot_equals: span,
-                            upper_bound: right,
-                        }),
+                        // TokenKind::ExclusiveRange => Expression::RangeOperation(RangeOperationExpression::Exclusive {
+                        //     lower_bound: left,
+                        //     double_dot: span,
+                        //     upper_bound: right,
+                        // }),
+                        // TokenKind::InclusiveRange => Expression::RangeOperation(RangeOperationExpression::Inclusive {
+                        //     lower_bound: left,
+                        //     double_dot_equals: span,
+                        //     upper_bound: right,
+                        // }),
                         _ => todo!(),
                     }
                 }
@@ -1494,15 +1494,15 @@ fn postfix(state: &mut State, lhs: Expression, op: &TokenKind) -> ParseResult<Ex
                 decrement: span,
             })
         }
-        TokenKind::ExclusiveRange => {
-            let span = state.stream.current().span;
-            state.stream.next();
+        // TokenKind::ExclusiveRange => {
+        //     let span = state.stream.current().span;
+        //     state.stream.next();
 
-            Expression::RangeOperation(RangeOperationExpression::Endless {
-                lower_bound: Box::new(lhs),
-                double_dot: span,
-            })
-        }
+        //     Expression::RangeOperation(RangeOperationExpression::Endless {
+        //         lower_bound: Box::new(lhs),
+        //         double_dot: span,
+        //     })
+        // }
         _ => todo!("postfix: {:?}", op),
     })
 }
@@ -1554,24 +1554,24 @@ fn is_infix(t: &TokenKind) -> bool {
             | TokenKind::DoubleQuestionEquals
             | TokenKind::AsteriskEquals
             | TokenKind::SlashEquals
-            | TokenKind::InclusiveRange
-            | TokenKind::ExclusiveRange
+            // | TokenKind::InclusiveRange
+            // | TokenKind::ExclusiveRange
     )
 }
 
 #[inline(always)]
 fn is_postfix(state: &State, t: &TokenKind) -> bool {
     match t {
-        TokenKind::ExclusiveRange => match state.stream.peek().kind {
-            TokenKind::Comma
-            | TokenKind::SemiColon
-            | TokenKind::CloseTag
-            | TokenKind::RightParen
-            | TokenKind::RightBracket
-            | TokenKind::RightBrace
-            | TokenKind::As => true,
-            _ => false,
-        },
+        // TokenKind::ExclusiveRange => match state.stream.peek().kind {
+        //     TokenKind::Comma
+        //     | TokenKind::SemiColon
+        //     | TokenKind::CloseTag
+        //     | TokenKind::RightParen
+        //     | TokenKind::RightBracket
+        //     | TokenKind::RightBrace
+        //     | TokenKind::As => true,
+        //     _ => false,
+        // },
         TokenKind::Increment
         | TokenKind::Decrement
         | TokenKind::LeftParen

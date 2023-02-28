@@ -50,7 +50,7 @@ impl Precedence {
             Asterisk | Slash | Percent => Self::MulDivMod,
             Plus | Minus => Self::AddSub,
             LeftShift | RightShift => Self::BitShift,
-            Dot | InclusiveRange | ExclusiveRange => Self::Concat,
+            Dot /*| InclusiveRange | ExclusiveRange*/ => Self::Concat,
             LessThan | LessThanEquals | GreaterThan | GreaterThanEquals => Self::LtGt,
             DoubleEquals | BangEquals | TripleEquals | BangDoubleEquals | AngledLeftRight
             | Spaceship => Self::Equality,
@@ -80,7 +80,7 @@ impl Precedence {
             Increment | Decrement => Self::IncDec,
             LeftParen | LeftBracket => Self::CallDim,
             Arrow | QuestionArrow | DoubleColon => Self::ObjectAccess,
-            ExclusiveRange => Self::Concat,
+            // ExclusiveRange => Self::Concat,
             _ => unimplemented!("postfix precedence for op {:?}", kind),
         }
     }

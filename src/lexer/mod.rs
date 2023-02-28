@@ -230,14 +230,14 @@ impl Lexer {
                 state.source.skip(3);
                 (TokenKind::Ellipsis, b"...".into())
             }
-            [b'.', b'.', b'='] => {
-                state.source.skip(3);
-                (TokenKind::InclusiveRange, b"..=".into())
-            }
-            [b'.', b'.', ..] => {
-                state.source.skip(2);
-                (TokenKind::ExclusiveRange, b"..".into())
-            }
+            // [b'.', b'.', b'='] => {
+            //     state.source.skip(3);
+            //     (TokenKind::InclusiveRange, b"..=".into())
+            // }
+            // [b'.', b'.', ..] => {
+            //     state.source.skip(2);
+            //     (TokenKind::ExclusiveRange, b"..".into())
+            // }
             [b'`', ..] => {
                 state.source.next();
                 state.replace(StackFrame::ShellExec);
