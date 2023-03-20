@@ -71,11 +71,11 @@ pub mod variables;
 
 pub type Block = Vec<Statement>;
 
-impl Node for Block {
-    fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.iter_mut().map(|s| s as &mut dyn Node).collect()
-    }
-}
+// impl Node for Block {
+//     fn children(&mut self) -> Vec<&mut dyn Node> {
+//         self.iter_mut().map(|s| s as &mut dyn Node).collect()
+//     }
+// }
 
 pub type Program = Block;
 
