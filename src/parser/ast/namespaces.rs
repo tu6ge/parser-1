@@ -20,10 +20,7 @@ impl Node for UnbracedNamespace {
     fn children(&mut self) -> Vec<&mut dyn Node> {
         let mut children = vec![&mut self.name as &mut dyn Node];
         children.extend(
-            self.statements
-                .iter_mut()
-                .map(|s| s as &mut dyn Node)
-                .collect::<Vec<&mut dyn Node>>(),
+            self.statements.children(),
         );
         children
     }
@@ -58,10 +55,7 @@ pub struct BracedNamespaceBody {
 
 impl Node for BracedNamespaceBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.statements
-            .iter_mut()
-            .map(|s| s as &mut dyn Node)
-            .collect()
+        self.statements.children()
     }
 }
 

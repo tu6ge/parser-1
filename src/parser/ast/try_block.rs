@@ -21,7 +21,7 @@ impl Node for CatchType {
         match self {
             CatchType::Identifier { identifier } => vec![identifier],
             CatchType::Union { identifiers } => {
-                identifiers.iter_mut().map(|i| i as &mut dyn Node).collect()
+                identifiers.children()
             }
         }
     }

@@ -57,10 +57,7 @@ pub struct UnitEnumBody {
 
 impl Node for UnitEnumBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.members
-            .iter_mut()
-            .map(|m| m as &mut dyn Node)
-            .collect()
+        self.members.children()
     }
 }
 
@@ -143,10 +140,7 @@ pub struct BackedEnumBody {
 
 impl Node for BackedEnumBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.members
-            .iter_mut()
-            .map(|m| m as &mut dyn Node)
-            .collect()
+        self.members.children()
     }
 }
 

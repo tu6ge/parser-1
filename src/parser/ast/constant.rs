@@ -52,10 +52,7 @@ impl IntoIterator for ConstantStatement {
 
 impl Node for ConstantStatement {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.entries
-            .iter_mut()
-            .map(|e| e as &mut dyn Node)
-            .collect()
+        self.entries.children()
     }
 }
 
@@ -88,9 +85,6 @@ impl IntoIterator for ClassishConstant {
 
 impl Node for ClassishConstant {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.entries
-            .iter_mut()
-            .map(|e| e as &mut dyn Node)
-            .collect()
+        self.entries.children()
     }
 }

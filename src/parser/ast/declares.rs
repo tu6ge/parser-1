@@ -33,10 +33,7 @@ pub struct DeclareEntryGroup {
 
 impl Node for DeclareEntryGroup {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.entries
-            .iter_mut()
-            .map(|e| e as &mut dyn Node)
-            .collect()
+        self.entries.children()
     }
 }
 
@@ -71,11 +68,11 @@ impl Node for DeclareBody {
         match self {
             DeclareBody::Noop { .. } => vec![],
             DeclareBody::Braced { statements, .. } => {
-                statements.iter_mut().map(|s| s as &mut dyn Node).collect()
+                statements.children()
             }
             DeclareBody::Expression { expression, .. } => vec![expression],
             DeclareBody::Block { statements, .. } => {
-                statements.iter_mut().map(|s| s as &mut dyn Node).collect()
+                statements.children()
             }
         }
     }

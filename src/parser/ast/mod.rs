@@ -127,7 +127,7 @@ pub struct StaticStatement {
 
 impl Node for StaticStatement {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.vars.iter_mut().map(|v| v as &mut dyn Node).collect()
+        self.vars.children()
     }
 }
 
@@ -144,7 +144,7 @@ pub struct SwitchStatement {
 impl Node for SwitchStatement {
     fn children(&mut self) -> Vec<&mut dyn Node> {
         let mut children: Vec<&mut dyn Node> = vec![&mut self.condition];
-        children.extend(self.cases.iter_mut().map(|c| c as &mut dyn Node));
+        children.extend(self.cases.children());
         children
     }
 }
@@ -159,7 +159,7 @@ pub struct EchoStatement {
 
 impl Node for EchoStatement {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.values.iter_mut().map(|v| v as &mut dyn Node).collect()
+        self.values.children()
     }
 }
 
@@ -190,7 +190,7 @@ pub struct UseStatement {
 
 impl Node for UseStatement {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.uses.iter_mut().map(|u| u as &mut dyn Node).collect()
+        self.uses.children()
     }
 }
 
@@ -205,7 +205,7 @@ pub struct GroupUseStatement {
 impl Node for GroupUseStatement {
     fn children(&mut self) -> Vec<&mut dyn Node> {
         let mut children: Vec<&mut dyn Node> = vec![&mut self.prefix];
-        children.extend(self.uses.iter_mut().map(|u| u as &mut dyn Node));
+        children.extend(self.uses.children());
         children
     }
 }
@@ -351,10 +351,7 @@ pub struct GlobalStatement {
 
 impl Node for GlobalStatement {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.variables
-            .iter_mut()
-            .map(|v| v as &mut dyn Node)
-            .collect()
+        self.variables.children()
     }
 }
 
@@ -368,10 +365,7 @@ pub struct BlockStatement {
 
 impl Node for BlockStatement {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.statements
-            .iter_mut()
-            .map(|s| s as &mut dyn Node)
-            .collect()
+        self.statements.children()
     }
 }
 
@@ -423,10 +417,7 @@ impl Node for Case {
             children.push(condition);
         }
         children.extend(
-            self.body
-                .iter_mut()
-                .map(|statement| statement as &mut dyn Node)
-                .collect::<Vec<&mut dyn Node>>(),
+            self.body.children(),
         );
         children
     }
@@ -816,7 +807,7 @@ pub struct ListExpression {
 
 impl Node for ListExpression {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.items.iter_mut().map(|i| i as &mut dyn Node).collect()
+        self.items.children()
     }
 }
 
@@ -846,10 +837,7 @@ pub struct InterpolatedStringExpression {
 
 impl Node for InterpolatedStringExpression {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.parts
-            .iter_mut()
-            .map(|part| part as &mut dyn Node)
-            .collect()
+        self.parts.children()
     }
 }
 
@@ -861,10 +849,7 @@ pub struct HeredocExpression {
 
 impl Node for HeredocExpression {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.parts
-            .iter_mut()
-            .map(|part| part as &mut dyn Node)
-            .collect()
+        self.parts.children()
     }
 }
 
@@ -883,10 +868,7 @@ pub struct ShellExecExpression {
 
 impl Node for ShellExecExpression {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.parts
-            .iter_mut()
-            .map(|part| part as &mut dyn Node)
-            .collect()
+        self.parts.children()
     }
 }
 
@@ -996,10 +978,7 @@ impl Node for MatchExpression {
             children.push(default.as_mut());
         }
         children.extend(
-            self.arms
-                .iter_mut()
-                .map(|arm| arm as &mut dyn Node)
-                .collect::<Vec<&mut dyn Node>>(),
+            self.arms.children(),
         );
         children
     }
@@ -1073,10 +1052,7 @@ impl Node for ShortMatchExpression {
             children.push(default.as_mut());
         }
         children.extend(
-            self.arms
-                .iter_mut()
-                .map(|arm| arm as &mut dyn Node)
-                .collect::<Vec<&mut dyn Node>>(),
+            self.arms.children(),
         );
         children
     }
@@ -1447,10 +1423,7 @@ impl Node for MatchArmBody {
 impl Node for MatchArm {
     fn children(&mut self) -> Vec<&mut dyn Node> {
         let mut children: Vec<&mut dyn Node> = self
-            .conditions
-            .iter_mut()
-            .map(|condition| condition as &mut dyn Node)
-            .collect();
+            .conditions.children();
         children.push(&mut self.body);
         children
     }

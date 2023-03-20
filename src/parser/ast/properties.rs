@@ -28,10 +28,7 @@ impl Node for Property {
             children.push(r#type);
         }
         children.extend(
-            self.entries
-                .iter_mut()
-                .map(|e| e as &mut dyn Node)
-                .collect::<Vec<&mut dyn Node>>(),
+            self.entries.children(),
         );
         children
     }
@@ -53,10 +50,7 @@ impl Node for VariableProperty {
             children.push(r#type);
         }
         children.extend(
-            self.entries
-                .iter_mut()
-                .map(|e| e as &mut dyn Node)
-                .collect::<Vec<&mut dyn Node>>(),
+            self.entries.children(),
         );
         children
     }

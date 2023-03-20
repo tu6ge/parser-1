@@ -96,10 +96,7 @@ pub struct FunctionBody {
 
 impl Node for FunctionBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.statements
-            .iter_mut()
-            .map(|x| x as &mut dyn Node)
-            .collect()
+        self.statements.children()
     }
 }
 
@@ -207,10 +204,7 @@ pub struct ArrowFunctionBlockBody {
 
 impl Node for ArrowFunctionBlockBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.statements
-            .iter_mut()
-            .map(|x| x as &mut dyn Node)
-            .collect()
+        self.statements.children()
     }
 }
 
@@ -419,9 +413,6 @@ pub struct MethodBody {
 
 impl Node for MethodBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.statements
-            .iter_mut()
-            .map(|s| s as &mut dyn Node)
-            .collect()
+        self.statements.children()
     }
 }

@@ -145,8 +145,8 @@ impl Node for Type {
     fn children(&mut self) -> Vec<&mut dyn Node> {
         match self {
             Type::Nullable(_, t) => vec![t.as_mut() as &mut dyn Node],
-            Type::Union(ts) => ts.iter_mut().map(|x| x as &mut dyn Node).collect(),
-            Type::Intersection(ts) => ts.iter_mut().map(|x| x as &mut dyn Node).collect(),
+            Type::Union(ts)
+            | Type::Intersection(ts) => ts.children(),
             _ => vec![],
         }
     }

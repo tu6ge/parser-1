@@ -83,9 +83,7 @@ impl Node for ForeachStatementBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
         match self {
             ForeachStatementBody::Statement { statement } => vec![statement.as_mut()],
-            ForeachStatementBody::Block { statements, .. } => {
-                statements.iter_mut().map(|s| s as &mut dyn Node).collect()
-            }
+            ForeachStatementBody::Block { statements, .. } => statements.children(),
         }
     }
 }
@@ -122,11 +120,10 @@ impl Node for ForStatementIterator {
         children.extend(
             self.initializations
                 .inner
-                .iter_mut()
-                .map(|x| x as &mut dyn Node),
+                .children(),
         );
-        children.extend(self.conditions.inner.iter_mut().map(|x| x as &mut dyn Node));
-        children.extend(self.r#loop.inner.iter_mut().map(|x| x as &mut dyn Node));
+        children.extend(self.conditions.inner.children());
+        children.extend(self.r#loop.inner.children());
         children
     }
 }
@@ -149,9 +146,7 @@ impl Node for ForStatementBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
         match self {
             ForStatementBody::Statement { statement } => vec![statement.as_mut()],
-            ForStatementBody::Block { statements, .. } => {
-                statements.iter_mut().map(|x| x as &mut dyn Node).collect()
-            }
+            ForStatementBody::Block { statements, .. } => statements.children(),
         }
     }
 }
@@ -208,9 +203,7 @@ impl Node for WhileStatementBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
         match self {
             WhileStatementBody::Statement { statement } => vec![statement.as_mut()],
-            WhileStatementBody::Block { statements, .. } => {
-                statements.iter_mut().map(|s| s as &mut dyn Node).collect()
-            }
+            WhileStatementBody::Block { statements, .. } => statements.children()
         }
     }
 }

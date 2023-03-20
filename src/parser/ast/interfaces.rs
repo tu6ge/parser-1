@@ -52,10 +52,7 @@ pub struct InterfaceBody {
 
 impl Node for InterfaceBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.members
-            .iter_mut()
-            .map(|member| member as &mut dyn Node)
-            .collect()
+        self.members.children()
     }
 }
 

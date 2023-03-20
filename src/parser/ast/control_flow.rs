@@ -52,10 +52,7 @@ impl Node for IfStatementBody {
             } => {
                 let mut children: Vec<&mut dyn Node> = vec![statement.as_mut()];
                 children.extend(
-                    elseifs
-                        .iter_mut()
-                        .map(|elseif| elseif as &mut dyn Node)
-                        .collect::<Vec<&mut dyn Node>>(),
+                    elseifs.children(),
                 );
                 if let Some(r#else) = r#else {
                     children.push(r#else as &mut dyn Node);
@@ -70,11 +67,9 @@ impl Node for IfStatementBody {
             } => {
                 let mut children: Vec<&mut dyn Node> = vec![];
                 children.extend(
-                    statements
-                        .iter_mut()
-                        .map(|statement| statement as &mut dyn Node),
+                    statements.children(),
                 );
-                children.extend(elseifs.iter_mut().map(|elseif| elseif as &mut dyn Node));
+                children.extend(elseifs.children());
                 if let Some(r#else) = r#else {
                     children.push(r#else as &mut dyn Node);
                 }
@@ -128,9 +123,7 @@ impl Node for IfStatementElseIfBlock {
     fn children(&mut self) -> Vec<&mut dyn Node> {
         let mut children: Vec<&mut dyn Node> = vec![&mut self.condition];
         children.extend(
-            self.statements
-                .iter_mut()
-                .map(|statement| statement as &mut dyn Node),
+            self.statements.children(),
         );
         children
     }
@@ -146,9 +139,6 @@ pub struct IfStatementElseBlock {
 
 impl Node for IfStatementElseBlock {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.statements
-            .iter_mut()
-            .map(|statement| statement as &mut dyn Node)
-            .collect()
+        self.statements.children()
     }
 }

@@ -80,10 +80,7 @@ impl IntoIterator for ArgumentList {
 
 impl Node for ArgumentList {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.arguments
-            .iter_mut()
-            .map(|a| a as &mut dyn Node)
-            .collect()
+        self.arguments.children()
     }
 }
 

@@ -44,10 +44,7 @@ impl IntoIterator for ClassBody {
 
 impl Node for ClassBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.members
-            .iter_mut()
-            .map(|member| member as &mut dyn Node)
-            .collect()
+        self.members.children()
     }
 }
 
@@ -103,10 +100,7 @@ impl IntoIterator for AnonymousClassBody {
 
 impl Node for AnonymousClassBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.members
-            .iter_mut()
-            .map(|member| member as &mut dyn Node)
-            .collect()
+        self.members.children()
     }
 }
 

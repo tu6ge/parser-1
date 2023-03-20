@@ -53,10 +53,7 @@ pub struct TraitBody {
 
 impl Node for TraitBody {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.members
-            .iter_mut()
-            .map(|member| member as &mut dyn Node)
-            .collect()
+        self.members.children()
     }
 }
 
@@ -85,7 +82,7 @@ pub struct TraitUsage {
 
 impl Node for TraitUsage {
     fn children(&mut self) -> Vec<&mut dyn Node> {
-        self.traits.iter_mut().map(|t| t as &mut dyn Node).collect()
+        self.traits.children()
     }
 }
 
